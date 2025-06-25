@@ -1,0 +1,1797 @@
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #000;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+
+
+/* Preloader backdrop */
+#preloader {
+  position: fixed; inset: 0;
+  background: #000;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999;
+}
+
+/* Logo base: invisible and slightly small */
+#preloader-logo {
+  width: 150px;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* Hide utility */
+#preloader.hidden {
+  display: none !important;
+}
+
+/* style.css mein daalein */
+body.preloading * {
+  animation-play-state: paused !important;
+  transition: none         !important;
+}
+
+
+
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+/* Container */
+#hero {
+  margin: 10px;
+  display: flex;
+  height: auto;
+  gap: 10px;
+  border-radius: 10px;
+}
+
+/* Left Pane */
+.left-container {
+  position: relative;
+  width: 70%;
+  border-radius: 10px !important;
+  background: rgb(35, 35, 35) center/cover url(Resources/Hero.png);
+}
+.left-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+.left-container img.left-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fade-in-img 1s ease forwards 0.4s;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Headline */
+.headline {
+  position: absolute;
+  bottom: 150px;
+  left: 70px;
+  color: #f0eada;
+  font-family: "Italiana", sans-serif;
+  font-weight: 800;
+  font-size: 3.5vw;
+  line-height: 1.2;
+  text-shadow: 1px 1px 2px rgba(10,10,10,1);
+  z-index: 2;
+}
+.headline h1 {
+  margin: 0;
+  font-weight: 500;
+}
+.animation-text-wipe {
+  display: inline-block;
+  opacity: 0;
+  mask: linear-gradient(to left, transparent 20%, black 80%) no-repeat;
+  mask-size: 400%;
+  mask-position: 100%;
+  -webkit-mask: linear-gradient(to left, transparent 20%, black 80%) no-repeat;
+  -webkit-mask-size: 400%;
+  -webkit-mask-position: 100%;
+  animation: text-wipe-smooth 2.8s cubic-bezier(0.77,0,0.175,1) forwards;
+}
+.headline h1 div:nth-child(1) { animation-delay: 0s; }
+.headline h1 div:nth-child(2) { animation-delay: 0.3s; }
+.headline h1 div:nth-child(3) { animation-delay: 0.6s; }
+
+/* ==========================================================================
+   HERO SECTION – Right Pane (Hero Cards)
+   ========================================================================== */
+#hero {
+  display: flex;
+  gap: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  /* height:auto; */          /* agar zaroorat ho to */
+}
+
+#hero .right-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Card base */
+#hero .card {
+  position: relative;
+  flex: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Full-cover invisible link */
+#hero .card > a.card-link {
+  position: absolute;
+  inset: 0;             /* top/right/bottom/left:0 */
+  display: block;
+  z-index: 3;           /* above overlays */
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Gradient at bottom */
+#hero .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,1), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Dark tint overlay on hover */
+#hero .card .overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.2);
+  transition: background-color 0.4s ease;
+  pointer-events: none;  /* allow clicks through */
+  z-index: 2;
+}
+#hero .card:hover .overlay {
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Background images (keep your files/menu.jpg etc.) */
+#hero .right-container .card:nth-child(1) {
+  background-image: url('Resources/KAORI-Panasian.jpg');
+}
+#hero .right-container .card:nth-child(2) {
+  background-image: url('Resources/Card-2.png');
+}
+#hero .right-container .card:nth-child(3) {
+  background-image: url('Resources/Ambience.jpg');
+}
+
+/* Image zoom effect */
+#hero .card-image img {
+  width: 100%;
+  height: 100%;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+#hero .card:hover .card-image img {
+  transform: scale(1.03);
+}
+
+/* Heading text */
+#hero .card-heading {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: #f0eada;
+  font-family: "Italiana", serif;
+  font-size: 1vw;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+  pointer-events: none;  /* so link still catches clicks */
+  z-index: 4;            /* above the link */
+}
+
+
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+.kaori-navbar {
+  position: absolute;
+  top: 30px;
+  left: 70px;
+  background-color: #0d0d0d;
+  border-radius: 12px;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: max-content;
+  z-index: 10;
+}
+.logo-img img {
+  height: 20px;
+  object-fit: cover;
+  display: block;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.nav-links a {
+  color: #ccc;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 0.65rem;
+  padding: 6px 10px;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links .cta {
+  border: 1px solid #888;
+  background-color: rgba(255,255,255,0.05);
+  border-radius: 6px;
+  color: #fff;
+  padding: 6px 14px;
+  font-weight: 500;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.nav-links .cta:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-color: #fff;
+}
+
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+@keyframes text-wipe-smooth {
+  0% {
+    opacity: 0;
+    mask-position: 100%;
+    -webkit-mask-position: 100%;
+  }
+  100% {
+    opacity: 1;
+    mask-position: 0%;
+    -webkit-mask-position: 0%;
+  }
+}
+@keyframes fade-in-up {
+  0%   { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-img {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+
+
+.fade-in { opacity: 0; animation: fade-in-up 1s ease forwards; }
+.fade-delay-navbar { animation-delay: 0.2s; }
+.fade-delay-left    { animation-delay: 0.4s; }
+.fade-delay-card-1       { animation-delay: 0.3s; }
+.fade-delay-card-2    { animation-delay: 0.6s; }
+.fade-delay-card-3   { animation-delay: 0.9s; }
+
+.fade-delay-1 { animation-delay: 0.3s; }
+.fade-delay-2 { animation-delay: 0.4s; }
+.fade-delay-3 { animation-delay: 0.5s; }
+
+.menu-content.active .fade-in {
+  animation-delay: 0s !important;
+}
+
+
+
+/* ==========================================================================
+   SECTION 2: IMAGE + TEXT SPLIT
+   ========================================================================== */
+/* Divider line */
+.section-divider {
+  width: 80%;
+  height: 1px;
+  background-color: rgb(55,55,55);
+  margin: 150px auto 0;
+}
+
+/* Layout */
+.image-split-section {
+  border-top: 1px solid rgb(55,55,55);
+  border-bottom: 1px solid rgb(55,55,55);
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 100px 8vw 40px;
+  background-color: #000;
+  flex-wrap: wrap;
+}
+
+/* Columns */
+.split-left,
+.split-right {
+  flex: 1;
+}
+
+/* Heading style */
+.split-left h2 {
+  font-family: 'Italiana', serif;
+  font-size: 2.8rem;
+  line-height: 1.6;
+  color: #f0eada;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+}
+
+/* Image container */
+.faded-photo-top {
+  position: relative;
+  overflow: hidden;
+}
+.faded-photo-top::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 40%;
+  background: linear-gradient(to bottom, #000 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* The image itself */
+.split-image {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 900px) {
+  .image-split-section {
+    flex-direction: column;
+    padding: 60px 5vw;
+  }
+  .split-left h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  .split-right {
+    margin-top: 30px;
+  }
+  .split-image {
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   GLOBAL FADE-IN ANIMATION (from About/History)
+   ========================================================================== */
+.fade-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   3RD SECTION: BUMPER & SCROLL INDICATOR
+   ========================================================================== */
+.bumper {
+  text-align: center;
+  padding: 40px 16px;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Forum', serif;
+  font-size: 2rem;
+}
+
+.scroll-ring-indicator {
+  position: absolute;
+  bottom: 80px;
+  left: 30px;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  z-index: 10;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.scroll-ring-indicator.visible { opacity: 1; }
+
+.ring-bg {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  z-index: 1;
+  filter: drop-shadow(0 0 3px rgba(255,255,255,0.1));
+}
+
+.scroll-content {
+  position: absolute;
+  top: 70%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 80%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.scroll-bars {
+  width: 8px;
+  height: 26px;
+  background: repeating-linear-gradient(to bottom, #fff, #fff 2px, transparent 2px, transparent 6px);
+  animation: scroll-pulse 1.2s ease-in-out infinite;
+  margin-bottom: 8px;
+}
+.scroll-label {
+  color: #aaa;
+  font-size: 0.6rem;
+  line-height: 1;
+}
+
+@keyframes scroll-pulse {
+  0%   { transform: translateY(0); opacity: 1; }
+  50%  { transform: translateY(6px); opacity: 0.6; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.scroll-ring-indicator {
+  position: absolute;
+  bottom: 80px;
+  left: 30px;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  z-index: 10;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.scroll-ring-indicator.visible {
+  opacity: 1;
+}
+
+.ring-bg {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  z-index: 1;
+  filter: drop-shadow(0 0 3px rgba(255,255,255,0.1));
+}
+
+.scroll-content {
+  position: absolute;
+  top: 70%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 80%; /* ⬅️ smaller than ring */
+  height: 80%;
+  padding: 10px; /* ⬅️ clean inner spacing */
+  box-sizing: border-box;
+}
+
+.scroll-bars {
+  width: 8px;
+  height: 26px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #fff,
+    #fff 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  animation: scroll-pulse 1.2s ease-in-out infinite;
+  margin-bottom: 8px; /* ⬅️ spacing below bar */
+}
+
+.scroll-label {
+  color: #aaa;
+  font-size: 0.6rem;
+  line-height: 1;
+}
+
+
+@keyframes scroll-pulse {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+.horizontal-container {
+   position: relative;
+  width: 100%;
+  min-height: 100vh; /* changed from 100vh */
+  background-color: #000;
+  padding: 0; /* remove any default spacing */
+  margin: 0;
+}
+
+
+.space-holder {
+  position: relative;
+  width: 100%;
+}
+
+.sticky {
+ position: sticky;
+  top: 0;
+  height: 100vh; /* keep this only if you want full screen scroll trigger */
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.horizontal {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.horizontal-inner {
+  align-items: center;
+  transform: translateX(100vw); /* 💡 only visual shift */
+}
+
+.cards {
+  position: relative;
+  height: 100%;
+  padding: 0 0 0 10vw;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: max-content;
+   height: auto; /* override if it’s too tall */
+}
+
+
+.sample-card {
+  position: relative;
+  height: 560px;
+  width: 940px;
+  color: #f0eada;
+  background-color: transparent; /* Removed background */
+  margin-right: 80px;
+  border-radius: 20px;
+  box-shadow: none; /* Removed shadow */
+  display: flex;
+  flex-direction: row; /* Layout: text on left, image on right */
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  border: 1px solid #333; /* Optional border for visual clarity */
+}
+
+.sample-card:hover {
+  transform: scale(1.03);
+  background-color: rgba(255, 255, 255, 0.05); /* subtle hover effect */
+}
+
+.sample-card .text-content {
+  flex: 1;
+  margin-right: 20px;
+ 
+}
+
+.sample-card .text-content h2 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  font-family: 'Italiana', serif;
+  font-weight: 500;
+  color: white;
+}
+
+.sample-card .text-content p {
+   width: 100%;
+  font-size: 1.2rem;
+  color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.sample-card .image-content {
+  width: 500px;
+  flex-shrink: 0;
+}
+
+.sample-card .image-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .sample-card {
+    flex-direction: column;
+    width: 90vw;
+    height: auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .sample-card .image-content {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+.kaori-quality {
+  flex-shrink: 0;
+  width: 800px;
+  height: 520px;
+  margin-right: 80px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none; /* background removed */
+}
+
+.quality-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* keeps the transparent PNG intact */
+  border-radius: 20px;
+  display: block;
+}
+
+/* Ensure horizontal layout scrolls fully */
+.cards {
+  min-width: max-content;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+/* ==========================================================================  
+   LIMITED MENU (Dark Elegant)
+   ========================================================================== */
+.menu-content {
+  display: none;
+}
+.menu-content.active {
+  display: block;
+}
+
+.menu-section {
+  border: 1px solid #222;
+  border-radius: 1rem;
+  padding: 4rem 2rem;
+  font-family: 'Italiana', serif;
+  color: #fff;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Italiana', serif;
+  font-size: 3rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: #c28f36;
+  margin-bottom: 2rem;
+}
+
+.menu-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.menu-tab {
+  font-family: 'Italiana', serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.menu-tab:hover { color: #f5f0e8; border-color: #c28f36; }
+.menu-tab.active {
+  background: #000;
+  border-color: #36c277;
+  color: #fff;
+}
+
+.menu-item-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 2rem;
+}
+.menu-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #222;
+}
+.menu-item:last-child { border-bottom: none; }
+
+.item-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.item-name {
+  font-family: 'Italiana', serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: #f5f0e8;
+}
+.dots {
+  flex: 1;
+  border-bottom: 1px dotted #444;
+  margin: 0 0.75rem;
+}
+.item-price {
+  font-family: 'Italiana', serif;
+  font-size: 1.05rem;
+  color: #c28f36;
+}
+.item-desc {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #bbb;
+  margin: 0;
+}
+
+.view-full-wrap {
+  text-align: center;
+  margin-top: 3rem;
+}
+.view-full-btn {
+  font-family: 'Italiana', serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 0.6rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+.view-full-btn:hover { color: #f5f0e8; border-color: #c28f36; }
+
+
+/* ==========================================================================  
+   GLOBAL FADE-IN ANIMATION (from About/History)
+   ========================================================================== */
+.fade-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   BOOKING SECTION (layout + styling + fade-in animation)
+   ========================================================================== */
+
+/* Full-screen section wrapper */
+.booking-section {
+  width: 100%;
+  height: auto;
+  background-color: #000;
+}
+
+/* Centered container for left + right panels */
+.booking-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   LEFT PANEL (centered flex, two-line heading)
+   ────────────────────────────────────────────────────────────────────────── */
+.booking-left {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background image layer */
+.booking-left .bg-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('Resources/your-image.jpg') center/cover no-repeat;
+  filter: brightness(0.7);
+  z-index: 0;
+}
+
+/* Two-line heading over image */
+.booking-left .left-heading {
+  position: static;
+  transform: none;
+  text-align: center;
+  line-height: 1;
+  margin: 0;
+  z-index: 1;
+}
+.booking-left .left-heading .line1 {
+  display: block;
+  font-family: 'Italiana', serif;
+  font-weight: 300;
+  font-size: 2.5rem;        /* smaller “Book A” */
+  color: #f0eada;
+  margin-bottom: 0.2em;
+}
+.booking-left .left-heading .line2 {
+  display: block;
+  font-family: 'Italiana', serif;
+  font-weight: 300;
+  font-size: 7rem;        /* large “Table” */
+  color: #f0eada;
+}
+
+/* Kill any leftover mask/wipe on those spans */
+.booking-left .left-heading .line1,
+.booking-left .left-heading .line2 {
+  mask: none !important;
+  -webkit-mask: none !important;
+  animation: none !important;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   RIGHT PANEL & FORM
+   ────────────────────────────────────────────────────────────────────────── */
+.booking-right {
+  margin-top: 100px;
+  width: 50%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Right panel heading */
+.booking-right .right-heading {
+  font-family: 'Italiana', serif;
+  font-weight: 300;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #f0eada;
+  margin-bottom: 1rem;
+}
+
+/* Subheading under heading */
+.booking-right .right-subheading {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
+  max-width: 380px;
+  line-height: 1.6;
+}
+
+/* Reservation form */
+.booking-form {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Form inputs */
+.booking-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  box-sizing: border-box;
+}
+.booking-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Row to group guests/date/time inputs */
+.form-row {
+  display: flex;
+  gap: 0.75rem;
+}
+.form-row input {
+  flex: 1;
+}
+/* Hide spinner on Guests */
+.booking-form input[name="guests"] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Submit button */
+.booking-form button {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 0.5rem;
+  background: transparent;
+  font-family: 'Italiana', serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #f0eada;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+.booking-form button:hover {
+  border-color: #c28f36;
+  color: #c28f36;
+}
+
+.borders{
+    /* give it the menu‐style border */
+  border: 1px solid #222;
+  border-radius: 1rem;
+  padding: 2rem;
+
+  /* constrain width like your form */
+  max-width: 420px;
+  width: 100%;
+  background: #000;    /* match background */
+  margin: 0 auto; 
+}
+
+/* ==========================================================================
+   GLOBAL FADE-IN ANIMATION (from About/History)
+   ========================================================================== */
+.fade-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 900px) {
+ .booking-section {
+    height: auto !important;
+    min-height: auto !important;
+    display: block !important;
+  }
+
+  .booking-container {
+    flex-direction: column !important;
+    height: auto !important;
+    overflow: hidden;
+  }
+
+  .booking-left,
+  .booking-right {
+    width: 100%;
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  html, body {
+    height: auto !important;
+    overflow-x: hidden !important;
+  }
+
+
+  .booking-right{
+    margin-top: 0px;
+  }
+
+  /* 4) Left heading fonts compress karo */
+  .booking-left .left-heading .line1 {
+    margin-top: 50px;
+    font-size: 1.8rem;
+  }
+  .booking-left .left-heading .line2 {
+    font-size: 4rem;
+  }
+
+  /* 5) Right heading chhota karo */
+  .booking-right .right-heading {
+    font-size: 2rem;
+    margin-top: 2rem; /* margin-top:100px hata ke 2rem rakha */
+  }
+
+  /* 6) Right subheading me padding thoda adjust karo */
+  .booking-right .right-subheading {
+    max-width: 100%;
+    padding: 0 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* 7) “borders” wrapper (form container) ko vertical centering se hata ke normal flow me lao */
+  .borders {
+    margin: 0 auto 2rem; /* upar ka auto, niche 2rem gap for spacing */
+    padding: 1.5rem;
+  }
+
+  /* 8) Form inputs aur button ke font-size thoda chhota karo */
+  .booking-form input,
+  .booking-form button {
+    font-size: 0.95rem;
+    padding: 0.7rem 1rem;
+  }
+
+  /* 9) Form-row ko column mode me karo taake “Guests, Date, Time” ek neechay ek aaye */
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* 1) Booking form ka row-to-row gap kam karo */
+.booking-form {
+  gap: 0.6rem; /* 1rem se kam, adjust kar sakte ho 0.5rem (8px) agar chahiye */
+}
+
+/* 2) Flatpickr-alt-input (Date/Time fields) ke upar-niche koi extra margin na ho */
+.flatpickr-alt-input {
+  margin: 0; /* default margin hatao */
+  /* padding thodi kam karke dekh lo */
+  padding: 0.65rem 0.9rem; /* 0.75rem 1rem ki jagah yeh use karke dekho */
+}
+
+/* 3) Agar aap row grouping (Guests/Date/Time) ke beech horizontal gap kam karna chahte ho */
+.form-row {
+  gap: 0.6rem;
+}
+
+/* 4) Individual inputs par agar bottom margin ho to hatao */
+.booking-form input {
+  margin-bottom: 0; /* koi default bottom margin agar ho to remove */
+}
+
+
+
+}
+
+/* ==========================================================================
+   FLATPICKR OVERRIDES — DARK THEME + RESERVE-STYLE CONTROLS
+   ========================================================================== */
+
+/* Hide original flatpickr-input */
+.flatpickr-input {
+  display: none !important;
+}
+
+/* Alt-input (text field) matches Reserve button */
+.flatpickr-alt-input {
+  display: block !important;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  border-radius: 0.5rem !important;    /* same radius as Reserve */
+  color: #fff !important;
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 1rem !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+}
+
+/* Calendar panel: dark bg, white text, rounded like Reserve */
+.flatpickr-calendar {
+  background: #000 !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  border-radius: 0.5rem !important;    /* match Reserve */
+  color: #fff !important;
+  z-index: 9999 !important;
+}
+
+/* Header & weekday labels in white */
+.flatpickr-current-month,
+.flatpickr-current-month .flatpickr-month,
+.flatpickr-current-month .flatpickr-year,
+.flatpickr-prev-month,
+.flatpickr-next-month,
+.flatpickr-weekday {
+  color: #fff !important;
+}
+
+/* Month-nav arrows styled like Reserve button */
+.flatpickr-prev-month,
+.flatpickr-next-month {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  margin: 0 0.25rem !important;
+  border: 1px solid rgba(255,255,255,0.4) !important;
+  border-radius: 0.5rem !important;
+  background: transparent !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease !important;
+}
+.flatpickr-prev-month svg,
+.flatpickr-next-month svg {
+  fill: currentColor !important;
+  width: 1rem !important;
+  height: 1rem !important;
+}
+.flatpickr-prev-month:hover,
+.flatpickr-next-month:hover,
+.flatpickr-prev-month:focus,
+.flatpickr-next-month:focus {
+  border-color: #c28f36 !important;
+  color: #c28f36 !important;
+  outline: none !important;
+}
+.flatpickr-prev-month:active,
+.flatpickr-next-month:active {
+  background: rgba(194,143,54,0.1) !important;
+}
+
+/* Day cells: transparent base, rounded, Reserve-style hover/selected */
+.flatpickr-day {
+  border-radius: 0.5rem !important;    /* match Reserve */
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease !important;
+}
+.flatpickr-day:not(.flatpickr-disabled) {
+  background: transparent !important;
+  border: none !important;
+  color: #fff !important;
+}
+.flatpickr-day:hover,
+.flatpickr-day.selected,
+.flatpickr-day.today {
+  background: transparent !important;
+  border: 1px solid #c28f36 !important;
+  color: #c28f36 !important;
+}
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+  background: transparent !important;
+  border: none !important;
+  color: rgba(255,255,255,0.3) !important;
+  pointer-events: none !important;
+}
+
+/* Time picker panel: dark footer matching calendar radius */
+.flatpickr-time {
+  background: #1a1a1a !important;
+  border-radius: 0 0 0.5rem 0.5rem !important;
+  color: #fff !important;
+}
+.flatpickr-time input,
+.flatpickr-am-pm,
+.flatpickr-time-separator {
+  color: #fff !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.flatpickr-monthDropdown-months {
+  background: #000 !important;
+  color: #fff !important;
+  /* border: 1px solid rgba(255,255,255,0.2) !important;
+  border-radius: 0.5rem !important; */
+  padding: 0rem 1rem !important;
+  appearance: none !important;
+}
+
+.flatpickr-monthDropdown-months option {
+  background-color: #000 !important;
+
+  color: #fff !important;
+}
+
+
+/* ───── BASE STYLES ───── */
+.about-history-section {
+  margin-top: 100px;
+  background: #000;
+  padding: 60px 20px;
+}
+
+
+.about-history-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;    /* cards’ bottoms aligned */
+  gap: 40px;                /* consistent gap */
+}
+
+/* ───── CARD ───── */
+.about-history-wrapper .card {
+  flex: 1 1 360px;          /* responsive min-width */
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+/* ───── CONTENT ROW ───── */
+.about-history-wrapper .content {
+  display: flex;
+  align-items: flex-end;    /* text bottoms match image */
+  gap: 24px;
+}
+
+/* ───── IMAGE ───── */
+.about-history-wrapper .img-wrap {
+  flex: 0 0 45%;
+  max-width: 450px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.about-history-wrapper .img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: transform 0.4s ease, filter 0.4s ease;
+  display: block;
+}
+
+/* ───── TEXT INFO ───── */
+.about-history-wrapper .info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.about-history-wrapper .subtitle {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+.about-history-wrapper .title {
+  font-family: 'Italiana', serif;
+  font-size: 2.2rem;
+  color: #f0eada;
+  margin: 0;
+}
+.about-history-wrapper .arrow {
+  margin-top: auto;         /* push to bottom */
+  font-size: 1.4rem;
+  color: #f0eada;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+/* ───── UNDERLINE ───── */
+.about-history-wrapper .underline {
+  height: 1px;
+  background-color: rgba(255,255,255,0.2);
+  margin-top: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.about-history-wrapper .underline::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #f0eada;
+  transition: width 0.4s ease;
+}
+
+/* ───── HOVER EFFECTS ───── */
+.about-history-wrapper .card:hover .img-wrap img {
+  filter: none;
+  transform: scale(1.05);
+}
+.about-history-wrapper .card:hover .underline::after {
+  width: 100%;
+}
+.about-history-wrapper .card:hover .arrow {
+  transform: translateX(6px);
+}
+
+/* Footer container */
+#site-footer {
+  position: relative;           /* establish stacking context */
+  overflow: hidden;             /* clip overflowing video */
+  margin-top: 100px;
+  padding: 50px 20px;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;            
+}
+
+
+/* #site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);  
+  z-index: 1;
+} */
+
+/* Video background styling */
+/* /* #site-footer .bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;            
+  z-index: 0;                   
+} */
+
+/* Inner content wrapper */
+.footer-inner {
+  position: relative;           /* sit above overlay */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Logo */
+.footer-logo img {
+  margin-top: 50px;
+  width: 700px;
+  margin-bottom: 30px;
+}
+
+/* “Follow Us” heading */
+.social-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  color: #747474;
+}
+
+/* Social icons container */
+.social-icons {
+  border: 1px solid gray;
+  padding: 10px 15px;
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+/* Individual social links */
+.social-link {
+  font-size: 20px;
+  color: #ffffff;
+  transition: transform 0.2s ease,
+              color 0.2s ease,
+              text-shadow 0.2s ease,
+              border-color 0.2s ease;
+}
+
+/* Hover effect on icons */
+.social-link:hover {
+  border-color: #c28f36;
+  color: #c28f36;
+}
+
+
+@media (max-width: 900px) {
+  
+ /* Footer logo responsiveness */
+#site-footer {
+    margin-top: 40px !important;
+    padding: 30px 20px !important;
+    min-height: auto!important;
+    height: auto !important;
+    display: flex !important;
+  }
+
+  .footer-logo img {
+    width: 80vw !important;
+    max-width: 320px !important;
+    height: auto !important;
+  }
+
+  .social-icons {
+    gap: 20px;
+    padding: 8px 12px;
+  }
+
+  .social-title {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+  }
+
+  html,
+  body {
+    height: auto !important;
+    overflow-x: hidden !important;
+  }
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   MOBILE OVERLAY + LINK ANIMATIONS
+────────────────────────────────────────────────────────────────────────── */
+
+/* 1) define a slide+fade keyframe for the links */
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2) overlay hidden by default */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.96);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 99;
+}
+
+/* 3) when you toggle .active, slide it into view */
+.mobile-nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition-delay: 0;
+  z-index: 100;
+}
+
+/* 4) style each link and animate them in with a slight delay */
+.mobile-nav {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+}
+
+.mobile-nav-overlay.active .mobile-nav a {
+  color: #f0eada;
+  font-size: 2rem;
+  font-family: 'Italiana', serif;
+  text-decoration: none;
+  opacity: 0;
+  animation: slideFadeIn 0.4s ease forwards;
+}
+
+/* stagger delays (nth‐child) */
+.mobile-nav-overlay.active .mobile-nav a:nth-child(1) { animation-delay: 0.1s; }
+.mobile-nav-overlay.active .mobile-nav a:nth-child(2) { animation-delay: 0.2s; }
+.mobile-nav-overlay.active .mobile-nav a:nth-child(3) { animation-delay: 0.3s; }
+.mobile-nav-overlay.active .mobile-nav a:nth-child(4) { animation-delay: 0.4s; }
+
+.mobile-nav a:hover {
+  color: #c28f36;
+}
+
+/* 5) morph hamburger → cross */
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #f0eada;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+
+
+
+/* ==========================================================================
+   2) “MENU” Title Banner (with visible border & rounded corners)
+   ========================================================================= */
+.page-title-banner {
+  width: 100%;
+  background-color: #000;                 /* Match your overall dark theme */
+  border: 1px solid #333;                /* ← Visible border around the banner */
+  border-radius: 12px;                   /* Rounded corners on all sides */
+  box-sizing: border-box;
+  margin: 120px auto 2rem auto;              /* Center horizontally, 2rem bottom‐gap */
+  padding: 2rem 2rem 1rem 2rem;           /* Top padding + horizontal padding */
+  max-width: 1200px;                     /* Same width constraint as your .container */
+  position: relative;
+  z-index: 10;                           /* Sit above the background, but below navbar */
+}
+
+.page-title-banner .banner-content {
+  text-align: center;
+}
+
+.page-title-banner h1 {
+  font-family: 'Italiana', serif;
+  font-size: 4rem;    
+  font-weight: 300;                   /* Large “MENU” text */
+  color: #ffffff;                        /* Golden accent color */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   3) “LIMITED MENU” TABS & GRID (as before) – no need to alter these unless
+   you want minor tweaks. Just keep them in place so the tabs show up. 
+   ========================================================================= */
+.menu-section {
+  background-color: #000;
+  padding: 2rem 0 3rem 0;
+}
+
+.menu-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem; /* horizontal padding matches the banner’s 2rem */
+}
+
+.menu-tabs {
+display: flex;
+  flex-wrap: wrap;              /* allow wrapping onto multiple lines */
+  justify-content: center;      /* center tabs on each row */
+  gap: 1rem;                    /* space between each tab button */
+  margin-bottom: 2rem; 
+}
+
+.menu-tab {
+  font-family: 'Italiana', serif;
+  font-size: 1rem;
+  min-width: 8rem; 
+  text-transform: uppercase;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.menu-tab:hover {
+  color: #f5f0e8;
+  border-color: #c28f36;
+}
+
+.menu-tab.active {
+  background: #000;
+  border-color: #c28f36;
+  color: #ffffff;
+}
+
+.menu-item-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 3rem;
+}
+
+.menu-item {
+  border-bottom: 1px solid #333;
+  padding-bottom: 1.5rem;
+}
+
+.menu-item .item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-item .item-name {
+  font-family: 'Italiana', serif;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  color: #f0f0f0;
+  margin-right: 1rem;
+}
+
+.menu-item .dots {
+  flex: 1;
+  border-bottom: 1px dotted #444;
+  margin: 0 0.75rem;
+}
+
+.menu-item .item-price {
+  font-family: 'Italiana', serif;
+  font-size: 1.1rem;
+  color: #fbfbfb;
+  white-space: nowrap;
+}
+
+.menu-item .item-desc {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #bbb;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.menu-item:hover .item-name,
+.menu-item:hover .item-price {
+  color: #fff;
+}
+
+.subsection-title {
+  font-weight: 300;
+}
+
+.menu-note{
+  margin-top: 20px;
+}
+
+
+
+
+
+
+/* ==========================================================================
+   HERO STACK @ ≤825px — Final Fixed Overrides
+   ========================================================================== */
+@media screen and (max-width: 825px) {
+
+  /* 4) Cards: full-width, stacked under hero */
+  #hero .right-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin: 1rem 0 !important;
+    padding: 0 10px !important;
+  }
+  #hero .right-container .card {
+    width: 100% !important;
+    height: 160px !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+
+  /* 5) Card headings stay visible */
+  #hero .card-heading {
+    font-size: 2rem !important;
+    bottom: 16px !important;
+    right: 16px !important;
+  }
+}

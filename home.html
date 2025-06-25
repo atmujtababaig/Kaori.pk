@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KAORI</title>
+
+  <!-- Main stylesheet -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="media-queries.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Forum&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Italiana&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Flatpickr CSS for date/time picker -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+  />
+</head>
+
+<!-- Font Awesome for social icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<body class="preloading">
+
+    <!-- Preloader -->
+  <div id="preloader">
+    <img
+      id="preloader-logo"
+      src="Resources/kaori-footer.png"
+      alt="Loading…"
+    />
+  </div>
+
+  <main id="main-content" data-scroll-container>
+    <!-- Navbar with Hamburger -->
+    <!-- Ab sirf "fade-in" hai. Delay class JS dekh ke mobile par add karega. -->
+<!-- NAVBAR -->
+<div id="navbar" class="kaori-navbar fade-in">
+  <!-- Logo -->
+  <a href="home.html" class="logo-link">
+    <div class="logo-img">
+      <img src="Resources/kaori-footer.png" alt="KAORI Logo" />
+    </div>
+  </a>
+  <!-- Hamburger Icon -->
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Desktop Navigation Links -->
+  <nav class="nav-links">
+    <a href="contact.html">CONTACT</a>
+    <a href="resturant-tour.html">RESURANT TOUR</a>
+    <a href="#booking-section" class="cta">BOOK A TABLE</a>
+  </nav>
+</div>
+
+<!-- MOBILE OVERLAY NAV MENU -->
+<div class="mobile-nav-overlay">
+  <nav class="mobile-nav">
+    <a href="menu.html">MENU</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="resturant-tour.html">RESTURANT TOUR</a>
+    <a href="#booking-section" class="cta">BOOK A TABLE</a>
+  </nav>
+</div>
+
+
+   <section id="hero">
+  <!-- Left Pane -->
+  <div class="left-container fade-in fade-delay-left">
+    <div class="gradient"></div>
+    <img src="Resources/Hero.png" alt="Hero Background" class="left-bg-img" />
+    <div class="headline">
+      <h1>
+        <div class="animation-text-wipe">KAORI –</div>
+        <div class="animation-text-wipe">A HOUSE OF</div>
+        <div class="animation-text-wipe">PANASIAN DISHES</div>
+      </h1>
+    </div>
+  </div>
+
+  <!-- Right side cards -->
+  <div class="right-container">
+    <div class="card fade-in fade-delay-1">
+      <a href="menu.html" class="card-link"></a>
+      <div class="card-heading">MENU</div>
+      <div class="card-image">
+        <div class="overlay"></div>
+      </div>
+    </div>
+
+    <div class="card fade-in fade-delay-2">
+      <a href="#booking-section" class="card-link"></a>
+      <div class="card-heading">RESERVATION</div>
+      <div class="card-image">
+        <div class="overlay"></div>
+      </div>
+    </div>
+
+    <div class="card fade-in fade-delay-3">
+      <a href="resturant-tour.html" class="card-link"></a>
+      <div class="card-heading">RESTAURANT TOUR</div>
+      <div class="card-image">
+        <div class="overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- ================================
+         SECTION 2: IMAGE + TEXT SPLIT
+         ================================ -->
+    <section class="section-2">
+      <!-- Split content -->
+      <section class="image-split-section">
+        <!-- Text side -->
+        <div class="split-left fade-item">
+          <h2>
+            ⚪ Where tradition meets modern flavor.
+            Each dish is a story — crafted with silence, served with soul.
+          </h2>
+        </div>
+
+        <!-- Image side -->
+        <div class="split-right fade-item">
+          <div class="faded-photo-top">
+            <img
+              src="Resources/section-2.png"
+              alt="Moroccan Steak"
+              class="split-image"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: HORIZONTAL SCROLL CARDS (Parent: .section-3) -->
+      <section class="section-3">
+        <section class="horizontal-container">
+          <div class="space-holder">
+            <div class="sticky">
+              <!-- Scroll indicator (Parent: .scroll-ring-indicator) -->
+              <div class="scroll-ring-indicator fade-item">
+                <img
+                  src="Resources/scroll-indicator.png"
+                  alt="Scroll Ring"
+                  class="ring-bg"
+                />
+                <div class="scroll-content">
+                  <div class="scroll-bars"></div>
+                  <span class="scroll-label">(scroll)</span>
+                </div>
+              </div>
+
+              <!-- Cards wrapper (Parent: .horizontal-inner) -->
+              <div class="horizontal">
+                <div class="horizontal-inner">
+                  <section role="feed" class="cards">
+                    <article class="kaori-quality fade-item">
+                      <img
+                        src="Resources/Kaori Quality.png"
+                        alt="Kaori Quality"
+                        class="quality-image"
+                      />
+                    </article>
+
+                    <article class="sample-card fade-item">
+                      <div class="text-content">
+                        <h2>AMBIENCE</h2>
+                        <p>
+                          Our interiors are designed to calm the senses. Enjoy soft
+                          lighting, elegant décor, and a soothing atmosphere every
+                          visit.
+                        </p>
+                      </div>
+                      <div class="image-content">
+                        <img src="Resources/Ambience.jpg" alt="Ambience image" />
+                      </div>
+                    </article>
+
+                    <article class="sample-card fade-item">
+                      <div class="text-content">
+                        <h2>THE KAORI RITUAL</h2>
+                        <p>
+                          We don’t just reserve a table. We choreograph a moment.
+                          Whether it’s an anniversary or a Tuesday night escape,
+                          every seat is staged for intimacy. Candlelight, shadows,
+                          silence — we don’t serve meals, we serve memory.
+                        </p>
+                      </div>
+                      <div class="image-content">
+                        <img
+                          src="Resources/Kaori-Ritual.jpg"
+                          alt="Chef's Pick image"
+                        />
+                      </div>
+                    </article>
+
+                    <article class="sample-card fade-item">
+                      <div class="text-content">
+                        <h2>TASTE, UNWRAPPED</h2>
+                        <p>
+                          At KAORI, a dish is not just served — it’s revealed.
+                          Every bite peels back layers of technique, history, and
+                          rebellion. This is where textures speak louder than
+                          words, and the familiar gets reimagined through fire,
+                          finesse, and flair.
+                        </p>
+                      </div>
+                      <div class="image-content">
+                        <img
+                          src="Resources/KAORI-TASTE.jpg"
+                          alt="Our Story image"
+                        />
+                      </div>
+                    </article>
+
+                    <article class="sample-card fade-item">
+                      <div class="text-content">
+                        <h2>BEHIND THE FLAME</h2>
+                        <p>
+                          Our chefs don’t follow recipes. They chase instincts. In
+                          the kitchen, precision dances with chaos, and every plate
+                          is a quiet act of rebellion. This is where ingredients
+                          travel across borders, and traditions get a modern burn.
+                        </p>
+                      </div>
+                      <div class="image-content">
+                        <img
+                          src="Resources/KAORI-Flames.png"
+                          alt="Our Story image"
+                        />
+                      </div>
+                    </article>
+
+                    <article class="sample-card fade-item">
+                      <div class="text-content">
+                        <h2>PANASIAN EXPERIENCE</h2>
+                        <p>
+                          At KAORI, Panasian means more than geography. It’s the
+                          harmony of depth, spice, balance, and silence — plated
+                          with elegance, and served without borders. From
+                          slow-simmered broths to flame-seared bites, every detail
+                          is an invitation to pause, feel, and savor.
+                        </p>
+                      </div>
+                      <div class="image-content">
+                        <img
+                          src="Resources/KAORI-Panasian.jpg"
+                          alt="Our Story image"
+                        />
+                      </div>
+                    </article>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+ <!-- LIMITED MENU SECTION -->
+<section id="limited-menu" class="menu-section">
+  <div class="container">
+    <!-- Section Title -->
+    <h2 class="section-title fade-item">Limited Menu</h2>
+
+    <!-- Tabs -->
+    <div class="menu-tabs fade-item">
+      <button class="menu-tab active" data-target="continental">Continental</button>
+      <button class="menu-tab" data-target="panasian-chicken">Pan Asian (Chicken)</button>
+      <button class="menu-tab" data-target="seafood">Seafood</button>
+      <button class="menu-tab" data-target="teppanyaki">Teppanyaki</button>
+    </div>
+
+    <!-- Menu Contents -->
+    <div class="menu-contents">
+      <!-- Continental Pane -->
+      <div class="menu-content active" id="continental">
+        <div class="menu-item-grid">
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Moroccan Chicken</span>
+              <span class="dots"></span>
+              <span class="item-price">1,549</span>
+            </div>
+            <p class="item-desc">
+              2 grilled breast chicken pieces infused with flavorful Moroccan sauce. Served alongside fragrant garlic rice and a side of vibrant vegetables.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Swiss Polo</span>
+              <span class="dots"></span>
+              <span class="item-price">1,699</span>
+            </div>
+            <p class="item-desc">
+              Featuring succulent chicken breasts stuffed with spinach, cheese, and olives. Encased in a crispy potato skin coating, accompanied by creamy mashed potatoes and a flavorful medley of vegetables.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Roulade of Chicken</span>
+              <span class="dots"></span>
+              <span class="item-price">1,699</span>
+            </div>
+            <p class="item-desc">
+              Deep-fried chicken delight with a crispy crumb coating, filled with a mixture of capsicum, jalapeño, pimento sauce, and melted cheese. Served with mashed potatoes and vegetables.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Bernaise Chicken</span>
+              <span class="dots"></span>
+              <span class="item-price">1,649</span>
+            </div>
+            <p class="item-desc">
+              2 grilled chicken breasts drenched with creamy Béarnaise sauce, served with mashed potatoes and mixed vegetables.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Parmesan Chicken</span>
+              <span class="dots"></span>
+              <span class="item-price">1,749</span>
+            </div>
+            <p class="item-desc">
+              2 breaded chicken pieces served on fettuccine pasta, topped with tomato marinara, black mushrooms, olives, and melted cheese. Served with garlic bread.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pan Asian (Chicken) Pane -->
+      <div class="menu-content" id="panasian-chicken">
+        <div class="menu-item-grid">
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Chilli Dry</span>
+              <span class="dots"></span>
+              <span class="item-price">1,099</span>
+            </div>
+            <p class="item-desc">
+              Tender chicken pieces stir-fried with dried red chilies, garlic, and soy-based sauce for a bold, fiery flavor.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Crunchy Chicken</span>
+              <span class="dots"></span>
+              <span class="item-price">1,199</span>
+            </div>
+            <p class="item-desc">
+              Crispy battered chicken tossed in a sweet-spicy glaze, garnished with scallions and sesame seeds.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Kung Pao</span>
+              <span class="dots"></span>
+              <span class="item-price">1,149</span>
+            </div>
+            <p class="item-desc">
+              Cubes of chicken stir-fried with peanuts, dried chilies, and savory Sichuan sauce, finished with fresh scallions.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Mongolian Chicken</span>
+              <span class="dots"></span>
+              <span class="item-price">1,199</span>
+            </div>
+            <p class="item-desc">
+              Tender chicken strips sautéed in a brown sugar-soy sauce with onions and scallions for a sweet-and-savory bite.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Sesame Chicken</span>
+              <span class="dots"></span>
+              <span class="item-price">1,149</span>
+            </div>
+            <p class="item-desc">
+              Lightly battered chicken glazed in a honey-soy sesame sauce, finished with toasted sesame seeds.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seafood Pane -->
+      <div class="menu-content" id="seafood">
+        <div class="menu-item-grid">
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Sole Mediterranean</span>
+              <span class="dots"></span>
+              <span class="item-price">1,999</span>
+            </div>
+            <p class="item-desc">
+              Pan-seared sole served with creamy Mediterranean sauce, mashed potatoes, and seasonal vegetables.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Atlantic Lemon Sole</span>
+              <span class="dots"></span>
+              <span class="item-price">1,999</span>
+            </div>
+            <p class="item-desc">
+              Grilled fillet of sole bursting with lemon and herbs, served with sautéed vegetables and mashed potatoes.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Kaori Special Fish</span>
+              <span class="dots"></span>
+              <span class="item-price">1,799</span>
+            </div>
+            <p class="item-desc">
+              Fish sautéed with capsicum, onions, and sweetcorn in a tangy sweet-and-sour sauce, served over garlic rice.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Fish Chilli Dry</span>
+              <span class="dots"></span>
+              <span class="item-price">1,799</span>
+            </div>
+            <p class="item-desc">
+              Succulent fish pieces tossed in vibrant spices and aromatics, garnished with fresh herbs and a squeeze of lime.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Hot Garlic Fish</span>
+              <span class="dots"></span>
+              <span class="item-price">1,549</span>
+            </div>
+            <p class="item-desc">
+              Tender fish fillets stir-fried with garlic, chilies, and scallions; served with steamed jasmine rice.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teppanyaki Pane -->
+      <div class="menu-content" id="teppanyaki">
+        <div class="menu-item-grid">
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Chicken Teppanyaki</span>
+              <span class="dots"></span>
+              <span class="item-price">2,149</span>
+            </div>
+            <p class="item-desc">
+              Tender chicken cubes marinated in garlic, butter, and soy sauce, infused with togarashi spice, served with sticky garlic rice.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Beef Teppanyaki</span>
+              <span class="dots"></span>
+              <span class="item-price">2,549</span>
+            </div>
+            <p class="item-desc">
+              Tender beef cubes marinated in garlic, butter, and soy sauce, infused with togarashi spice, served with sticky garlic rice.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Prawn Teppanyaki</span>
+              <span class="dots"></span>
+              <span class="item-price">2,699</span>
+            </div>
+            <p class="item-desc">
+              Tender prawn cubes marinated in garlic, butter, and soy sauce, infused with togarashi spice, served with sticky garlic rice.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Fish Teppanyaki</span>
+              <span class="dots"></span>
+              <span class="item-price">2,649</span>
+            </div>
+            <p class="item-desc">
+              Tender fish cubes marinated in garlic, butter, and soy sauce, infused with togarashi spice, served with sticky garlic rice.
+            </p>
+          </div>
+          <div class="menu-item fade-item">
+            <div class="item-header">
+              <span class="item-name">Special Teppanyaki</span>
+              <span class="dots"></span>
+              <span class="item-price">2,249</span>
+            </div>
+            <p class="item-desc">
+              Sole fish, chicken & beef stir-fried with veggies, served with Japanese garlic rice.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View Full Menu -->
+    <div class="view-full-wrap fade-item">
+      <a href="menu.html" class="view-full-btn">View Full Menu</a>
+    </div>
+  </div>
+</section>
+
+
+      <!-- ================================
+           ABOUT & HISTORY SECTION
+           ================================ -->
+      <section class="about-history-section">
+        <div class="about-history-wrapper">
+          <!-- Company Card -->
+          <div class="card fade-item">
+            <div class="content">
+              <div class="img-wrap">
+                <img src="Resources/About.png" alt="About Building" />
+              </div>
+              <div class="info">
+                <p class="subtitle">About us</p>
+                <h3 class="title">KAORI</h3>
+                <a href="resturant-tour.html" class="arrow">→</a>
+              </div>
+            </div>
+            <div class="underline"></div>
+          </div>
+          <!-- Contact Card -->
+          <div class="card fade-item">
+            <div class="content">
+              <div class="img-wrap">
+                <img src="Resources/Contact.jpg" alt="Contact Photo" />
+              </div>
+              <div class="info">
+                <p class="subtitle">Get in Touch</p>
+                <h3 class="title">Contact Us</h3>
+                <a href="contact.html" class="arrow">→</a>
+              </div>
+            </div>
+            <div class="underline"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOOKING SECTION -->
+      <section id="booking-section" class="booking-section">
+        <div class="booking-container">
+          <!-- Left Panel (fade-in) -->
+          <div class="booking-left fade-item">
+            <div class="bg-image"></div>
+            <h2 class="left-heading fade-item">
+              <span class="line1">Book A</span>
+              <span class="line2">Table</span>
+            </h2>
+          </div>
+
+          <!-- Right Panel (fade-in) -->
+          <div class="booking-right fade-item">
+            <div class="borders">
+              <h2 class="right-heading">Reservation</h2>
+              <p class="right-subheading">
+                Secure your spot at KAORI, where the highest form of dining
+                experience awaits.
+              </p>
+              <form action="https://api.web3forms.com/submit" method="POST" class="booking-form fade-item">
+                     <input type="hidden" name="access_key" value="523ce866-fb7c-44f7-8b0e-c9be356694bd">
+
+                 <input type="hidden" name="subject" value="New Reservation — KAORI">
+                 <input type="hidden" name="from_name" value="KAORI.PK">
+
+
+                <input type="text" name="name" placeholder="Name" required />
+                <input type="tel" name="phone" placeholder="Phone Number" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <div class="form-row">
+                  <input
+                    type="text"
+                    name="guests"
+                    placeholder="Guests"
+                    inputmode="numeric"
+                    required
+                  />
+                  <input
+                    id="date-picker"
+                    name="date"   
+                    type="text"
+                    placeholder="Date"
+                    readonly
+                    required
+                  />
+                  <input
+                    id="time-picker"
+                    name="time"   
+                    type="text"
+                    placeholder="Time"
+                    readonly
+                    required
+                  />
+                </div>
+                <button type="submit">Reserve</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer id="site-footer">
+        <div class="footer-inner fade-item">
+          <!-- KAORI Logo -->
+          <div class="footer-logo">
+            <img src="Resources/kaori-footer.png" alt="KAORI Logo" />
+          </div>
+
+          <!-- “Follow Us” -->
+          <h2 class="social-title">Follow Us</h2>
+
+          <!-- Social Icons -->
+          <div class="social-icons">
+            <a href="https://facebook.com/yourhandle" class="social-link" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com/yourhandle" class="social-link" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/yourhandle" class="social-link" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://behance.net/yourhandle" class="social-link" target="_blank">
+              <i class="fab fa-behance"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+
+  <script>
+    const ham = document.querySelector('.hamburger');
+    const nav = document.querySelector('.nav-links');
+    ham.addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    flatpickr("#date-picker", {
+      altInput: true,
+      altFormat: "Y-m-d",
+      dateFormat: "Y-m-d",
+      minDate: "today",
+      clickOpens: true
+    });
+    flatpickr("#time-picker", {
+      altInput: true,
+      altFormat: "h:i K",
+      dateFormat: "H:i",
+      enableTime: true,
+      noCalendar: true,
+      time_24hr: false,
+      clickOpens: true
+    });
+
+    });
+  </script>
+
+  <!-- Menu Tabs Script: toggles menu categories -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.menu-tab');
+      const contents = document.querySelectorAll('.menu-content');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          contents.forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.target)?.classList.add('active');
+        });
+      });
+    });
+  </script>
+
+  <!-- Horizontal Scroll Engine: drives sideways scroll -->
+  <script>
+    const spaceHolder = document.querySelector('.space-holder');
+    const horizontal = document.querySelector('.horizontal');
+    function calcDynamicHeight(ref) {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      return ref.scrollWidth + vw + vh - 1600;
+    }
+    function updateScrollHeight() {
+      spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
+    }
+    updateScrollHeight();
+    window.addEventListener('resize', updateScrollHeight);
+    window.addEventListener('scroll', () => {
+      const sticky = document.querySelector('.sticky');
+      horizontal.style.transform = `translateX(-${sticky.offsetTop}px)`;
+    });
+  </script>
+
+  <!-- Scroll Ring Visibility: toggles the scroll hint -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const ring = document.querySelector('.scroll-ring-indicator');
+      const sh = document.querySelector('.space-holder');
+      if (!ring || !sh) return;
+      window.addEventListener('scroll', () => {
+        const { top, bottom } = sh.getBoundingClientRect();
+        ring.classList.toggle('visible', top <= 0 && bottom >= window.innerHeight);
+      });
+    });
+  </script>
+
+<script>
+  // Select DOM elements
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-nav-overlay');
+  const navLinks = document.querySelectorAll('.mobile-nav a');
+
+  // Toggle menu on hamburger click
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('active');
+  });
+
+  // Close menu when any link is clicked
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('active');
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const overlay   = document.querySelector('.mobile-nav-overlay');
+
+    // Toggle the overlay
+    hamburger.addEventListener('click', () => {
+      overlay.classList.toggle('open');
+    });
+
+    // Close when any link is clicked
+    overlay.querySelectorAll('a').forEach(link =>
+      link.addEventListener('click', () => overlay.classList.remove('open'))
+    );
+  });
+</script>
+
+
+<script>
+// 2) On page‐load, wire up every card to follow its own “→” link:
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .querySelectorAll('.about-history-section .card')
+    .forEach(card => {
+      card.addEventListener('click', () => {
+        const arrowLink = card.querySelector('a.arrow');
+        if (arrowLink) window.location.href = arrowLink.href;
+      });
+    });
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const pre  = document.getElementById('preloader');
+  const logo = document.getElementById('preloader-logo');
+  const main = document.getElementById('main-content');
+
+  // 1) Wrap your fade‐in & mobile‐delay logic
+  function initContentAnimations() {
+    // Mobile delays
+    function applyMobileDelays() {
+      if (window.innerWidth < 768) {
+        document.getElementById('navbar').classList.add('fade-delay-left');
+        document.getElementById('heroLeft').classList.add('fade-delay-navbar');
+      }
+    }
+    applyMobileDelays();
+    window.addEventListener('resize', applyMobileDelays);
+
+    // IntersectionObserver for .fade-item & .fade-in
+    const items = document.querySelectorAll('.fade-item, .fade-in');
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    items.forEach(el => observer.observe(el));
+  }
+
+  // 2) GSAP preloader timeline
+  const tl = gsap.timeline({ defaults: { duration: 1, ease: 'sine.out' } });
+  tl
+    .to(logo, { opacity: 1, scale: 1 })      // logo fade‐in & scale
+    .to({}, { duration: 0.5 })               // pause
+    .to(pre, {                               // backdrop fade‐out
+      opacity: 0,
+      duration: 0.6,
+      ease: 'sine.in',
+      onComplete: () => {
+        pre.classList.add('hidden');          // hide preloader
+        document.body.classList.remove('preloading');
+        main.style.display = 'block';         // show main
+        initContentAnimations();              // then init content animations
+      }
+    });
+
+  // 3) Unified <a> click handler
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+
+      // CASE A: same‐page hash → smooth scroll
+      if (href && href.startsWith('#') && document.querySelector(href)) {
+        e.preventDefault();
+        pre.classList.add('hidden');
+        document.body.classList.remove('preloading');
+        main.style.display = 'block';
+        document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+
+      // CASE B: internal page nav → show preloader + navigate
+      if (link.origin === location.origin && !href.startsWith('#')) {
+        e.preventDefault();
+        pre.classList.remove('hidden');
+        gsap.set(pre,  { opacity: 1 });
+        gsap.set(logo, { opacity: 0, scale: 0.95 });
+        main.style.display = 'none';
+        tl.restart();
+        setTimeout(() => window.location.href = href, 500);
+      }
+      // external links proceed normally
+    });
+  });
+});
+</script>
+
+
+
+</body>
+
+
+
+</html>

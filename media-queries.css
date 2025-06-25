@@ -1,0 +1,741 @@
+/* ==========================================================================
+   HERO SECTION (base)
+   ========================================================================== */
+
+   /* navbar */
+.kaori-navbar {
+  position: absolute; top:30px; left:70px;
+  background-color: #0d0d0d; border-radius: 12px;
+  padding:8px 18px; display:flex; align-items:center; gap:16px;
+  width: max-content; z-index: 10;
+}
+.logo-img img { height:20px; }
+.nav-links { display:flex; gap:15px; }
+.nav-links a {
+  color:#ccc; font-size:.65rem; padding:6px 10px;
+  transition: color .3s;
+}
+.nav-links a:hover { color:#fff; }
+.nav-links .cta {
+  border:1px solid #888; background:rgba(255,255,255,0.05);
+  border-radius:6px; color:#fff; padding:6px 14px; font-weight:500;
+  transition: background .3s, border-color .3s;
+}
+.nav-links .cta:hover { background:rgba(255,255,255,0.1); border-color:#fff; }
+
+/* hamburger (mobile) */
+.hamburger {
+  display: none; flex-direction:column; justify-content:space-between;
+  width:24px; height:18px; cursor:pointer; margin-left:16px; z-index:11;
+}
+.hamburger span { height:2px; background:#f0eada; border-radius:1px; }
+
+
+#hero {
+  margin: 10px;
+  display: flex;
+  height: calc(100vh - 20px);
+  gap: 10px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.left-container {
+  position: relative;
+  width: 70%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgb(35, 35, 35) center/cover url(Resources/Hero.png);
+}
+.left-container::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,1), transparent);
+  z-index: 1;
+}
+.left-container img.left-bg-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; animation: fade-in-img 1s ease 0.4s forwards;
+  z-index: 0;
+}
+.headline {
+  position: absolute;
+  bottom: 150px;
+  left: 70px;
+  color: #f0eada;
+  font-family: "Italiana", sans-serif;
+  font-weight: 800;
+  font-size: 3.5vw;
+  line-height: 1.2;
+  text-shadow: 1px 1px 2px rgba(10,10,10,1);
+  z-index: 2;
+}
+.headline h1 { margin: 0; font-weight: 500; }
+
+/* cards */
+.right-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#hero .card {
+  position: relative; flex: 1; border-radius: 16px; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  background-size: cover; background-position: center;
+}
+#hero .card::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,1), transparent);
+  z-index: 1;
+}
+.card-image img { width:100%; height:100%; object-fit:cover; transition:transform .4s ease; }
+.card .overlay { position:absolute; inset:0; background:rgba(0,0,0,0.2); z-index:2; transition:background .4s ease; }
+.card:hover .overlay { background:rgba(0,0,0,0.4); }
+.card:hover .card-image img { transform: scale(1.03); }
+.card-heading {
+  position: absolute; bottom:20px; right:20px;
+  color:#f0eada; font-family:"Italiana"; font-size:1vw; font-weight:500;
+  text-shadow:1px 1px 2px rgba(0,0,0,0.4); z-index:3;
+}
+
+
+
+
+
+/* ==========================================================================
+   TABLET LAYOUT (≤1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+   /* Hero becomes vertical flow */
+  #hero {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* Left pane above, full width */
+  .left-container {
+    width: 100%;
+    height: auto;
+  }
+  .left-container img.left-bg-img {
+    position: relative;
+    height: auto;
+  }
+
+  /* Navbar & headline reposition */
+  .kaori-navbar {
+    top: 20px;
+    left: 20px;
+  }
+  .headline {
+    bottom: 20%;
+    left: 20px;
+    font-size: 6vw;
+  }
+
+  /* Right‐container: wrap cards, not force-nowrap */
+  .right-container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;           /* scroll if it overflows */
+    gap: 10px !important;
+    width: 100% !important;
+    margin: 0 0 20px !important;
+    padding: 0 20px !important;
+  }
+  .right-container .card {
+    flex: 1 1 calc((100% - 20px) / 3);
+    min-width: 240px;       /* <-- ensures they never shrink below 240px */
+    height: 200px;
+    margin: 0;
+  }
+}
+
+
+/* ==========================================================================
+   MOBILE LAYOUT (≤768px) 
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* same stacking but with smaller heights */
+  .left-container { height: 50vh; }
+  .headline { bottom: 15%; left: 15px; font-size: 8vw; }
+  .right-container .card { height: 150px; }
+  /* show hamburger */
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 56px; right: 20px;
+    background: rgba(255, 0, 0, 0.95);
+    padding: 10px; border-radius: 8px; gap: 10px;
+  }
+
+  .right-container {
+    display: flex !important;
+    flex-direction: column !important; /* stack */
+    gap: 10px;
+    padding: 0 20px 20px;
+    margin: 20px 0;
+  }
+  .right-container .card {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 150px;
+  }
+
+   .menu-section {
+    max-width: 100%;
+    margin: 2rem 1rem;
+    padding: 3rem 1rem;
+  }
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .menu-tabs {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .menu-tab {
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+  }
+  .menu-item-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .item-name {
+    font-size: 1rem;
+  }
+  .item-price {
+    font-size: 1rem;
+  }
+  .item-desc {
+    font-size: 0.85rem;
+  }
+  .view-full-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.5rem;
+  }
+
+}
+
+/* ─────────── RESPONSIVE STACK @ ≤820px ─────────── */
+@media (max-width: 820px) {
+  /* 1) Hide scroll indicators */
+  .scroll-ring-indicator,
+  .ring-bg,
+  .scroll-content,
+  .scroll-bars,
+  .scroll-label {
+    display: none !important;
+  }
+
+  /* 2) Disable horizontal-scroll wrappers */
+  .horizontal-container,
+  .space-holder,
+  .sticky,
+  .horizontal,
+  .horizontal-inner {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    transform: none !important;
+    display: block !important;
+  }
+
+  /* 3) Stack all cards vertically */
+  .cards {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    padding: 1rem !important;
+    gap: 1rem !important;
+    position: static !important;
+    min-width: auto !important;
+    height: auto !important;
+  }
+
+  /* 4) Make each “card” full-width */
+  .sample-card,
+  .kaori-quality {
+    width: 100% !important;
+    margin: 0 0 1.5rem 0 !important;
+    height: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* 5) Inside .sample-card, stack text above image */
+  .sample-card {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 1.5rem !important;
+  }
+  .sample-card .text-content,
+  .sample-card .image-content {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* 6) Breathing room: heading, text, image */
+  .sample-card .text-content h2 {
+    margin-bottom: 1rem !important;
+  }
+  .sample-card .text-content p {
+    margin-bottom: 1.5rem !important;
+  }
+  .sample-card .image-content {
+    margin-top: 1.5rem !important;
+  }
+}
+
+
+
+
+
+@media (max-width: 825px) {
+  /* 1) Hero container full width, flow by content */
+  #hero {
+    display: block !important;
+    height: auto !important;
+    margin: 0px !important;
+    padding: 0 10px !important;
+  }
+
+ 
+  
+
+  /* 3) Left pane sits below navbar, fixed height */
+  .left-container {
+    position: relative !important;
+    width: 100% !important;
+    height: 90vh !important;
+    margin: 56px 0 0 0 !important; /* push below navbar */
+    border-radius: 1rem !important;
+    overflow: hidden;
+  }
+  .left-container img.left-bg-img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .left-container::before {
+    inset: 0 !important;
+  }
+
+  /* 4) Headline inside left-container, spaced from top */
+  .headline {
+    position: absolute !important;
+    margin-top: 150px !important;
+    margin-left: 20px;
+    text-align: left;
+    font-size: 3rem !important;
+    line-height: 1.1 !important;
+    z-index: 10 !important;
+  }
+
+  /* 5) Cards stack after left-pane */
+  .right-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 16px !important;
+    margin: 0 !important;
+  }
+  .right-container .card {
+    width: 100% !important;
+    height: 150px !important;
+    border-radius: 8px !important;
+  }
+
+  /* Card heading size */
+  .card-heading {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #f0eada;
+    font-family: "Italiana", sans-serif;
+    font-size: 2rem !important;
+    font-weight: 500;
+    text-align: right;
+    line-height: 1.2;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    pointer-events: none;
+    z-index: 3;
+  }
+
+ 
+ 
+         
+
+  /* Booking section wrapper (if needed) */
+  .booking-section {
+    /* your overrides here */
+  }
+
+
+  .about-history-section{
+    margin-top: 0px;
+  }
+
+ .about-history-wrapper {  
+    flex-direction: column;
+    gap: 70px !important;
+    padding: 1rem !important;
+  }
+
+  /* override flex-grow on mobile */
+  .about-history-wrapper .card {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+  }
+
+  .about-history-wrapper .content {
+    flex-direction: row !important;
+    gap: 12px !important;
+  }
+  .about-history-wrapper .img-wrap {
+    flex: 0 0 40%;
+    max-width: 40%;
+    height: auto;
+  }
+  .about-history-wrapper .info {
+    justify-content: flex-end;
+    gap: 4px;
+  }
+  .about-history-wrapper .subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+  }
+  .about-history-wrapper .title {
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+  }
+  .about-history-wrapper .arrow {
+    font-size: 1.2rem;
+    margin-top: 0;
+  }
+
+}
+
+
+
+/* ─────────── MID-SIZE (≤1200px & >768px) ─────────── */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .menu-section {
+    /* full width minus side-margins */
+    max-width: calc(100% - 4rem);
+    margin: 2rem auto;
+    /* thoda kam padding taake border andar rahe */
+    padding: 3rem 1.5rem;
+  }
+}
+
+
+
+
+/* ==========================================================================  
+   MOBILE – NARROW VIEW @ ≤530px  
+   ========================================================================== */
+@media (max-width: 530px) {
+  .item-header {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .item-name,
+  .item-price {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 0.95rem; /* adjust if needed */
+  }
+  .dots {
+    flex: 1 1 auto;
+    min-width: 0;
+    border-bottom: 1px dotted #444;
+    margin: 0 0.5rem;
+    /* ensure overflow is handled */
+    overflow: hidden;
+  }
+}
+
+
+
+/* ==========================================================================
+   CUSTOM MENU PAGE – RESPONSIVE OVERRIDES (match homepage break at 820px)
+   ========================================================================== */
+
+/* by default (desktop) */
+.hamburger,
+.mobile-nav-overlay {
+  display: none;
+}
+
+/* desktop nav-links */
+@media screen and (min-width: 821px) {
+  .kaori-navbar .nav-links {
+    display: flex !important;
+  }
+}
+
+/* mobile layout ≤820px */
+@media screen and (max-width: 820px) {
+
+   /* 2) Navbar fixed top, logo center, hamburger left, hide links */
+  .kaori-navbar {
+    position: relative !important;
+    top: 100; left: 0; right: 0;
+    width: 100% !important;
+    height: 50px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 1000;
+    border-radius: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .kaori-navbar .logo-img {
+    margin: 0; /* centers logo */
+  }
+
+   .kaori-navbar .logo-img img {
+    height: 35px; /* centers logo */
+  }
+  .nav-links {
+    display: none !important;
+  }
+  .hamburger {
+    display: flex !important;
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    margin-left: -1px;
+  }
+  .hamburger span {
+    background: #f0eada;
+  }
+
+  /* 1) Show hamburger, hide desktop links */
+  .hamburger {
+    display: flex !important;
+    cursor: pointer;
+    gap: 4px;
+  }
+  .kaori-navbar .nav-links {
+    display: none !important;
+  }
+
+  /* 2) Navbar full-width styling */
+  .kaori-navbar {
+    width: 100% !important;
+    padding: 8px 16px !important;
+    justify-content: center !important;
+    position: relative !important;
+  }
+
+  .hamburger {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: #f0eada;
+    border-radius: 2px;
+  }
+
+  /* 3) Mobile overlay nav */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 1000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .mobile-nav-overlay.open {
+    display: flex !important;
+  }
+  .mobile-nav a {
+    color: #fff;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+  }
+
+  /* 4) Page title */
+  .page-title-banner .banner-content h1 {
+    font-size: 2rem !important;
+    text-align: center !important;
+  }
+
+  /* 5) Tabs wrap */
+  .menu-tabs {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .menu-tab {
+    flex: 1 1 45% !important;
+    max-width: 45% !important;
+    text-align: center !important;
+    padding: 0.5rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* 6) Menu items → single column */
+  .menu-item-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .item-header .item-name,
+  .item-header .item-price {
+    font-size: 1rem !important;
+  }
+  .item-desc {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+  }
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   FORCE MOBILE “MENU” BANNER TO MATCH .menu-section WIDTH @ ≤820px
+   ────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 820px) {
+  .page-title-banner {
+    /* same horizontal gutters as .menu-section */
+    width: calc(100% - 2rem) !important;  
+    margin: 5.5rem auto 0rem auto !important;       /* top/bottom 1.5rem, left/right auto */
+    box-sizing: border-box !important;    /* include padding in that width */
+
+    /* if you had padding on desktop, preserve the vertical vs horizontal */
+    padding: 2.5rem 1rem !important;      /* adjust as needed for your design */
+  }
+
+  .page-title-banner .banner-content h1 {
+    text-align: center !important;       /* ensure the text is dead-center */
+  }
+}
+
+@media (max-width: 1200px) {
+  .page-title-banner {
+    /* same horizontal gutters as .menu-section */
+    width: calc(100% - 2rem) !important;  
+    margin: 5.5rem auto 0rem auto !important;       /* top/bottom 1.5rem, left/right auto */
+    box-sizing: border-box !important;    /* include padding in that width */
+
+    /* if you had padding on desktop, preserve the vertical vs horizontal */
+    padding: 2.5rem 1rem !important;      /* adjust as needed for your design */
+  }
+
+  .page-title-banner .banner-content h1 {
+    text-align: center !important;       /* ensure the text is dead-center */
+  }
+}
+
+
+@media (max-width: 820px) {
+  /* 1) Turn the header into a 3-column grid: name | dots | price */
+  .menu-item .item-header {
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    column-gap: 0.5rem !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2) Allow long names to wrap inside their cell */
+  .menu-item .item-name {
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+
+  /* 3) Dots cell fills the gap but never wraps */
+  .menu-item .dots {
+    overflow: hidden !important;
+    white-space: nowrap !important;
+  }
+
+  /* 4) Keep price on one line */
+  .menu-item .item-price {
+    white-space: nowrap !important;
+  }
+}
+
+
+@media (max-width: 820px) {
+
+  .menu-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 0.5rem !important;
+    padding: 0 1rem !important;
+    justify-content: flex-start !important;    /* ← lock to left edge */
+    scroll-snap-type: x mandatory !important;
+    box-sizing: border-box !important;
+  }
+
+  .menu-tab {
+    flex: 0 0 auto !important;
+    scroll-snap-align: start !important;
+  }
+
+  /* optional: hide the scrollbar for a cleaner look */
+  .menu-tabs::-webkit-scrollbar {
+    height: 4px;
+  }
+  .menu-tabs::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.2);
+    border-radius: 2px;
+  }
+}
+
+
+@media (max-width: 820px) {
+  .menu-tabs {
+    /* Firefox */
+    scrollbar-width: none !important;
+    /* IE 10+ */
+    -ms-overflow-style: none !important;
+  }
+  /* Chrome, Safari, Opera */
+  .menu-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+}
+
+
+
+
+
+

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restaurant Tour</title>
+
+  <!-- Main Stylesheets -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="media-queries.css" />
+  <link rel="stylesheet" href="resturant-tour.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body class="preloading">
+
+      <!-- Preloader -->
+  <div id="preloader">
+    <img
+      id="preloader-logo"
+      src="Resources/kaori-footer.png"
+      alt="Loading…"
+    />
+  </div>
+
+  <main id="main-content" data-scroll-container>
+
+<!-- Navbar with Hamburger -->
+    <!-- Ab sirf "fade-in" hai. Delay class JS dekh ke mobile par add karega. -->
+<!-- NAVBAR -->
+<div id="navbar" class="kaori-navbar fade-in">
+  <!-- Logo -->
+  <a href="home.html" class="logo-link">
+    <div class="logo-img">
+      <img src="Resources/kaori-footer.png" alt="KAORI Logo" />
+    </div>
+  </a>
+  <!-- Hamburger Icon -->
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Desktop Navigation Links -->
+  <nav class="nav-links">
+    <a href="contact.html">CONTACT</a>
+    <a href="resturant-tour.html">RESTURANT TOUR</a>
+    <a href="menu.html" class="cta">MENU</a>
+  </nav>
+</div>
+
+<!-- MOBILE OVERLAY NAV MENU -->
+<div class="mobile-nav-overlay">
+  <nav class="mobile-nav">
+    <a href="menu.html">MENU</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="resturant-tour.html">RESTURANT TOUR</a>
+    <a href="#booking-section" class="cta">BOOK A TABLE</a>
+  </nav>
+</div>
+
+
+    <!-- VIDEO SECTION -->
+    <section class="tour-video-section fade-in">
+      <video class="tour-video fade-item"
+             preload="auto"
+             autoplay
+             muted
+             loop
+             playsinline
+             poster="Resources/your-poster.jpg">
+        <source src="Resources/An exquisite dining experience, only at The House of Pan Asian..mp4"
+                type="video/mp4">
+        Your browser doesn’t support HTML5 video.
+      </video>
+    </section>
+
+    <!-- MAIN TOUR CONTENT -->
+    <section class="content-section fade-in">
+      <div class="container">
+        <section class="tour-section">
+          <div class="tour-wrapper">
+
+            <!-- LEFT PANEL -->
+            <div class="tour-left fade-item">
+              <div class="tour-overlay">
+                <h2>INSIDE KAORI</h2>
+              </div>
+            </div>
+
+            <!-- RIGHT PANEL -->
+            <div class="tour-right fade-item">
+
+              <!-- Intro -->
+              <div class="tour-intro fade-item">
+                <h3>PAN-ASIAN ELEGANCE, REDEFINED</h3>
+                <p>
+                  Where centuries-old traditions meet modern mastery.
+                  Kaori brings Sialkot its own refined Pan-Asian dining experience — crafted with fire, finesse, and authenticity.
+                </p>
+              </div>
+
+              <!-- Image -->
+              <div class="tour-image fade-item">
+                <img src="Resources/KAORI-Panasian.jpg" alt="Bar interior"/>
+              </div>
+
+              <!-- Reviews -->
+              <div class="tour-reviews">
+                <div class="review-card fade-item">
+                  <div class="stars">★★★★★</div>
+                  <div class="title">Panasian Mastery</div>
+                  <div class="sub">Elevated flavors, curated perfectly</div>
+                </div>
+                <div class="review-card fade-item">
+                  <div class="stars">★★★★★</div>
+                  <div class="title">Modern Aesthetics</div>
+                  <div class="sub">Mouth watering flavours with modern aethetics</div>
+                </div>
+                <div class="review-card fade-item">
+                  <div class="stars">★★★★★</div>
+                  <div class="title">Ambience</div>
+                  <div class="sub">Designed for calm, slow dining</div>
+                </div>
+              </div>
+
+              <!-- Story -->
+              <div class="tour-story">
+                <div class="story-image fade-item">
+                  <img src="Resources/Ambience.jpg" alt="Chefs cooking"/>
+                </div>
+                <div class="story-text fade-item">
+                  <h4>OUR STORY</h4>
+                  <p>
+                    Founded with a passion for culinary excellence, Kaori’s journey began in the heart
+                    of Sialkot. Over years, it evolved into a haven for pan-asian enthusiasts, celebrated
+                    for its artful mastery and devotion.
+                  </p>
+                </div>
+              </div>
+
+            </div> <!-- end .tour-right -->
+
+          </div> <!-- end .tour-wrapper -->
+        </section> <!-- end .tour-section -->
+      </div> <!-- end .container -->
+    </section> <!-- end .content-section -->
+
+  </main> <!-- end main -->
+
+  <!-- FOOTER -->
+  <footer id="site-footer">
+    <div class="footer-inner fade-item">
+      <div class="footer-logo ">
+        <img src="Resources/kaori-footer.png" alt="KAORI Logo"/>
+      </div>
+      <h2 class="social-title">Follow Us</h2>
+      <div class="social-icons">
+        <a href="https://facebook.com/yourhandle" class="social-link" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com/yourhandle" class="social-link" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com/yourhandle" class="social-link" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://behance.net/yourhandle" class="social-link" target="_blank">
+          <i class="fab fa-behance"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+   // Select DOM elements
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-nav-overlay');
+  const navLinks = document.querySelectorAll('.mobile-nav a');
+
+  // Toggle menu on hamburger click
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('active');
+  });
+
+  // Close menu when any link is clicked
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('active');
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const overlay   = document.querySelector('.mobile-nav-overlay');
+
+    // Toggle the overlay
+    hamburger.addEventListener('click', () => {
+      overlay.classList.toggle('open');
+    });
+
+    // Close when any link is clicked
+    overlay.querySelectorAll('a').forEach(link =>
+      link.addEventListener('click', () => overlay.classList.remove('open'))
+    );
+  });
+</script>
+
+
+
+
+ <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fadeItems = document.querySelectorAll('.fade-item, .fade-in');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      fadeItems.forEach(el => observer.observe(el));
+    });
+  </script>
+
+  <!-- Preloader initialization -->
+  <script>
+    window.addEventListener('load', () => {
+      const pre  = document.getElementById('preloader');
+      const logo = document.getElementById('preloader-logo');
+      const body = document.body;
+      logo.animate([
+        { opacity: 0, transform: 'scale(0.95)' },
+        { opacity: 1, transform: 'scale(1)' }
+      ], {
+        duration: 1000,
+        easing: 'ease-out',
+        fill: 'forwards'
+      });
+      setTimeout(() => {
+        pre.classList.add('hide');
+        body.classList.remove('preloading');
+      }, 1600);
+    });
+  </script>
+
+    
+
+
+</body>
+</html>

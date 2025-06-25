@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MENU</title>
+
+  <!-- Main stylesheet -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="media-queries.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Forum&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Italiana&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Flatpickr CSS for date/time picker -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+  />
+</head>
+
+<!-- Font Awesome for social icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<style>
+  /* 1) Pause your page’s animations while the loader is up */
+  body.preloading * {
+    animation-play-state: paused !important;
+    transition: none         !important;
+  }
+
+  /* 2) Make #preloader fill the screen */
+  #preloader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+
+  /* 3) Initial state for the logo */
+  #preloader-logo {
+    width: 120px;
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  /* 4) Class to hide it—match whatever your JS actually adds: */
+  #preloader.hide,
+  #preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-out, visibility 0.4s;
+  }
+</style>
+
+
+
+<body class="preloading">
+
+      <!-- Preloader -->
+  <div id="preloader">
+    <img
+      id="preloader-logo"
+      src="Resources/kaori-footer.png"
+      alt="Loading…"
+    />
+  </div>
+
+  <main id="main-content" data-scroll-container>
+ <!-- Navbar with Hamburger -->
+    <!-- Ab sirf "fade-in" hai. Delay class JS dekh ke mobile par add karega. -->
+<!-- NAVBAR -->
+<div id="navbar" class="kaori-navbar fade-in">
+  <!-- Logo -->
+  <a href="home.html" class="logo-link">
+    <div class="logo-img">
+      <img src="Resources/kaori-footer.png" alt="KAORI Logo" />
+    </div>
+  </a>
+  <!-- Hamburger Icon -->
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Desktop Navigation Links -->
+  <nav class="nav-links">
+    <a href="contact.html">CONTACT</a>
+    <a href="resturant-tour.html">RESTURANT TOUR</a>
+    <a href="menu.html" class="cta">MENU</a>
+  </nav>
+</div>
+
+<!-- MOBILE OVERLAY NAV MENU -->
+<div class="mobile-nav-overlay">
+  <nav class="mobile-nav">
+    <a href="menu.html">MENU</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="resturant-tour.html">RESTURANT TOUR</a>
+    <a href="#booking-section" class="cta">BOOK A TABLE</a>
+  </nav>
+</div>
+
+
+  <!-- ───────  “MENU” TITLE BANNER  ─────── -->
+  <section class="page-title-banner fade-in fade-delay-1">
+    <div class="banner-content">
+      <h1>MENU</h1>
+    </div>
+  </section>
+
+  <!-- ───────  Limited Menu with Tabs (animated)  ─────── -->
+  <section id="limited-menu" class="menu-section fade-in fade-delay-2">
+    <div class="container">
+      <div class="menu-tabs">
+        <button class="menu-tab active" data-target="appetizers">Appetizers</button>
+        <button class="menu-tab" data-target="salads">Salads</button>
+        <button class="menu-tab" data-target="soups">Soups</button>
+        <button class="menu-tab" data-target="sandwiches">Sandwiches</button>
+        <button class="menu-tab" data-target="beef-burgers">Beef Burgers</button>
+        <button class="menu-tab" data-target="beef-steak">Beef Steak</button>
+        <button class="menu-tab" data-target="continental">Continental Entrees</button>
+        <button class="menu-tab" data-target="panasian-chicken">Pan Asian (Chicken)</button>
+        <button class="menu-tab" data-target="panasian-beef">Pan Asian (Beef)</button>
+        <button class="menu-tab" data-target="seafood">Seafood</button>
+        <button class="menu-tab" data-target="teppanyaki">Teppanyaki</button>
+        <button class="menu-tab" data-target="pastas">Pastas</button>
+        <button class="menu-tab" data-target="curries">Curries</button>
+        <button class="menu-tab" data-target="rice-noodles">Rice &amp; Noodles</button>
+        <button class="menu-tab" data-target="desserts">Desserts</button>
+        <button class="menu-tab" data-target="beverages">Beverages</button>
+      </div>
+
+      <div class="menu-contents">
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     APPETIZERS PANE
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content active fade-in fade-delay-3" id="appetizers">
+          <div class="menu-item-grid">
+            <!-- Dynamite Prawns -->
+            <div class="menu-item fade-in fade-delay-4">
+              <div class="item-header">
+                <span class="item-name">Dynamite Prawns</span>
+                <span class="dots"></span>
+                <span class="item-price">1,099</span>
+              </div>
+              <p class="item-desc">
+                Deep‐fried prawns (8 pieces) served with a flavorful dynamite sauce
+                and garlic mayonnaise.
+              </p>
+            </div>
+
+            <!-- Mozzarella Sticks -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Mozzarella Sticks</span>
+                <span class="dots"></span>
+                <span class="item-price">999</span>
+              </div>
+              <p class="item-desc">
+                Crispy mozzarella sticks served with tartar sauce.
+              </p>
+            </div>
+
+            <!-- Korean Wings -->
+            <div class="menu-item fade-in fade-delay-6">
+              <div class="item-header">
+                <span class="item-name">Korean Wings</span>
+                <span class="dots"></span>
+                <span class="item-price">999</span>
+              </div>
+              <p class="item-desc">
+                6 pieces of succulent wings glazed with our signature spicy Korean sauce.
+              </p>
+            </div>
+
+            <!-- Prawn Tempura -->
+            <div class="menu-item fade-in fade-delay-7">
+              <div class="item-header">
+                <span class="item-name">Prawn Tempura</span>
+                <span class="dots"></span>
+                <span class="item-price">2,399</span>
+              </div>
+              <p class="item-desc">
+                6 pieces of batter‐fried prawns served with a special Japanese tempura sauce.
+              </p>
+            </div>
+
+            <!-- Beef Tataki -->
+            <div class="menu-item fade-in fade-delay-8">
+              <div class="item-header">
+                <span class="item-name">Beef Tataki</span>
+                <span class="dots"></span>
+                <span class="item-price">1,199</span>
+              </div>
+              <p class="item-desc">
+                Thinly sliced, medium‐rare grilled beef drizzled with a savory and tangy sauce,
+                topped with sesame seeds.
+              </p>
+            </div>
+
+            <!-- Chicken Dumpling -->
+            <div class="menu-item fade-in fade-delay-9">
+              <div class="item-header">
+                <span class="item-name">Chicken Dumpling</span>
+                <span class="dots"></span>
+                <span class="item-price">999</span>
+              </div>
+              <p class="item-desc">
+                6 pieces of chicken dumplings prepared to your preference (steamed or pan‐seared),
+                served with dumpling sauce.
+              </p>
+            </div>
+
+            <!-- Dinsu Prawns -->
+            <div class="menu-item fade-in fade-delay-10">
+              <div class="item-header">
+                <span class="item-name">Dinsu Prawns</span>
+                <span class="dots"></span>
+                <span class="item-price">1,299</span>
+              </div>
+              <p class="item-desc">
+                Crispy fried prawns (6 pieces) coated with a delectable sweet and sour sauce.
+              </p>
+            </div>
+
+            <!-- Loaded Hummus -->
+            <div class="menu-item fade-in fade-delay-11">
+              <div class="item-header">
+                <span class="item-name">Loaded Hummus</span>
+                <span class="dots"></span>
+                <span class="item-price">1,049</span>
+              </div>
+              <p class="item-desc">
+                Creamy white chickpeas with olives, topped with extra virgin olive oil
+                and tender chicken cubes.
+              </p>
+            </div>
+
+            <!-- Daenkatachi Sakana -->
+            <div class="menu-item fade-in fade-delay-12">
+              <div class="item-header">
+                <span class="item-name">Daenkatachi Sakana</span>
+                <span class="dots"></span>
+                <span class="item-price">899</span>
+              </div>
+              <p class="item-desc">
+                4 pieces of finely minced fish blended with the bold kick of green chilies,
+                embraced by the creamy richness of melted mozzarella cheese.
+              </p>
+            </div>
+
+            <!-- Beef Brochieta -->
+            <div class="menu-item fade-in fade-delay-13">
+              <div class="item-header">
+                <span class="item-name">Beef Brochieta</span>
+                <span class="dots"></span>
+                <span class="item-price">1,499</span>
+              </div>
+              <p class="item-desc">
+                Four pieces of French bread cradle thinly grilled beef, glazed in a homemade
+                sauce, adorned with multi-capsicum, cheese, and a crispy potato crunch.
+              </p>
+            </div>
+
+            <!-- Finger Fish -->
+            <div class="menu-item fade-in fade-delay-14">
+              <div class="item-header">
+                <span class="item-name">Finger Fish</span>
+                <span class="dots"></span>
+                <span class="item-price">1,199</span>
+              </div>
+              <p class="item-desc">
+                Crispy crumb-fried fish (6 pieces) served with a side of fries and accompanied
+                by tartar sauce.
+              </p>
+            </div>
+
+            <!-- Beef Negimaki -->
+            <div class="menu-item fade-in fade-delay-15">
+              <div class="item-header">
+                <span class="item-name">Beef Negimaki</span>
+                <span class="dots"></span>
+                <span class="item-price">899</span>
+              </div>
+              <p class="item-desc">
+                Grilled beef enfolding a harmonious infusion of spring onion and carrot,
+                elegantly crowned with a drizzle of Teriyaki sauce.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Appetizers End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     SALADS PANE
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="salads">
+          <div class="menu-item-grid">
+            <!-- Balsamic Salad -->
+            <div class="menu-item fade-in fade-delay-4">
+              <div class="item-header">
+                <span class="item-name">Balsamic Salad</span>
+                <span class="dots"></span>
+                <span class="item-price">899</span>
+              </div>
+              <p class="item-desc">
+                A refreshing mix of crisp greens, topped with juicy grilled chicken, crunchy caramelized walnuts, drizzled with a rich balsamic dressing.
+              </p>
+            </div>
+
+            <!-- Caesar Salad -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Caesar Salad</span>
+                <span class="dots"></span>
+                <span class="item-price">999</span>
+              </div>
+              <p class="item-desc">
+                A blend of crisp lettuce, generously coated in a creamy Caesar dressing, topped with tender grilled chicken, sun‐dried tomatoes, black olives, Parmesan cheese, crunchy croutons, and a touch of zesty lemon.
+              </p>
+            </div>
+
+            <!-- Crunchy Salad -->
+            <div class="menu-item fade-in fade-delay-6">
+              <div class="item-header">
+                <span class="item-name">Crunchy Salad</span>
+                <span class="dots"></span>
+                <span class="item-price">799</span>
+              </div>
+              <p class="item-desc">
+                A vibrant ensemble of contrasting leaves, luscious green apple, beetroot, and red cabbage, elegantly crowned with a delightful crunch.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Salads End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     SOUPS SECTION
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="soups">
+          <div class="menu-item-grid">
+            <!-- Cream of Mushroom Soup -->
+            <div class="menu-item fade-in fade-delay-4">
+              <div class="item-header">
+                <span class="item-name">Cream of Mushroom Soup</span>
+                <span class="dots"></span>
+                <span class="item-price">599</span>
+              </div>
+              <p class="item-desc">
+                A rich and creamy soup made with flavorful mushrooms, creating a velvety texture that delights the taste buds. Served with garlic bread.
+              </p>
+            </div>
+
+            <!-- Cream of Chicken Soup -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Cream of Chicken Soup</span>
+                <span class="dots"></span>
+                <span class="item-price">599</span>
+              </div>
+              <p class="item-desc">
+                A comforting soup infused with tender chicken pieces, simmered in a creamy broth for a satisfying and nourishing experience. Served with garlic bread.
+              </p>
+            </div>
+
+            <!-- Hot & Sour Soup -->
+            <div class="menu-item fade-in fade-delay-6">
+              <div class="item-header">
+                <span class="item-name">Hot &amp; Sour Soup</span>
+                <span class="dots"></span>
+                <span class="item-price">Single 499 Family 1149</span>
+              </div>
+              <p class="item-desc">
+                A zesty, spicy and sour soup with a perfect balance of heat and sourness. Enjoy it alone or opt for the family size with crackers for a complete meal.
+              </p>
+            </div>
+
+            <!-- 19B Soup -->
+            <div class="menu-item fade-in fade-delay-7">
+              <div class="item-header">
+                <span class="item-name">19B Soup</span>
+                <span class="dots"></span>
+                <span class="item-price">Single 549 Family 1349</span>
+              </div>
+              <p class="item-desc">
+                A hearty and flavorful soup packed with a variety of ingredients, including chicken, prawns, black mushrooms, and carrots, all topped with fresh spring onions. Choose the family size with crackers for a shared dining experience.
+              </p>
+            </div>
+
+            <!-- Thai Clear Soup -->
+            <div class="menu-item fade-in fade-delay-8">
+              <div class="item-header">
+                <span class="item-name">Thai Clear Soup</span>
+                <span class="dots"></span>
+                <span class="item-price">399</span>
+              </div>
+              <p class="item-desc">
+                A hearty broth complemented by thinly sliced chicken, lively green chili, and a delightful touch of crispy fried rice.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Soups End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     SANDWICHES SECTION
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="sandwiches">
+          <div class="menu-item-grid">
+            <!-- Club Sandwich -->
+            <div class="menu-item fade-in fade-delay-4">
+              <div class="item-header">
+                <span class="item-name">Club Sandwich</span>
+                <span class="dots"></span>
+                <span class="item-price">1,399</span>
+              </div>
+              <p class="item-desc">
+                Our Club Sandwich features succulent grilled chicken and flavorful Turkey rashers, stuffed with boiled eggs,
+                cheese and topped with fresh tomatoes. This delightful combination is served with a side of fries and coleslaw.
+              </p>
+            </div>
+
+            <!-- Grilled Chicken Panini -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Grilled Chicken Panini</span>
+                <span class="dots"></span>
+                <span class="item-price">1,299</span>
+              </div>
+              <p class="item-desc">
+                This delectable Panini features succulent grilled chicken nestled between Italian bread, sun‐dried tomatoes
+                and jalapeño pickle, served with fries and coleslaw.
+              </p>
+            </div>
+          </div>
+
+          <!-- Note below the two items -->
+          <p class="menu-note fade-in fade-delay-6">Served with Fries and Coleslaw</p>
+        </div>
+        <!-- Sandwiches End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     BEEF BURGERS SECTION
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="beef-burgers">
+          <div class="menu-item-grid">
+            <!-- Smash Burger -->
+            <div class="menu-item fade-in fade-delay-4">
+              <div class="item-header">
+                <span class="item-name">Smash Burger</span>
+                <span class="dots"></span>
+                <span class="item-price">1,049</span>
+              </div>
+              <p class="item-desc">
+                Our Smash Burger features two juicy beef minced patties, along with the bold flavors of jalapeño, pickle,
+                cheese, and refreshing cucumber, alongside fries and coleslaw.
+              </p>
+            </div>
+
+            <!-- Mushroom Melt Burger -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Mushroom Melt Burger</span>
+                <span class="dots"></span>
+                <span class="item-price">1,099</span>
+              </div>
+              <p class="item-desc">
+                This mouthwatering delight showcases a juicy beef patty topped with crispy fried onion rings, fresh mushrooms,
+                and a luscious mushroom cheesy sauce.
+              </p>
+            </div>
+          </div>
+
+          <!-- Note below the items -->
+          <p class="menu-note fade-in fade-delay-6">Served with Fries and Coleslaw</p>
+        </div>
+        <!-- Beef Burgers End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     BEEF STEAK SECTION
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="beef-steak">
+          <div class="menu-item-grid">
+            <!-- Surf & Turf Steak -->
+            <div class="menu-item fade-in fade-delay-4">
+              <div class="item-header">
+                <span class="item-name">Surf &amp; Turf Steak</span>
+                <span class="dots"></span>
+                <span class="item-price">3,199</span>
+              </div>
+              <p class="item-desc">
+                Savor the ultimate fusion of three medallion beef steaks, two garlic-infused prawns, bone marrow, black pepper sauce, creamy spinach, and roasted garlic on the side.
+              </p>
+            </div>
+
+            <!-- Mushroom Sauce Steak -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Mushroom Sauce Steak</span>
+                <span class="dots"></span>
+                <span class="item-price">2,099</span>
+              </div>
+              <p class="item-desc">
+                Our Beef Steak with Mushroom Sauce features a tender fillet of beef accompanied by creamy mashed potatoes, sautéed vegetables, and a luscious black mushroom sauce, all enhanced by a bed of creamy spinach.
+              </p>
+            </div>
+
+            <!-- Béarnaise Beef Steak -->
+            <div class="menu-item fade-in fade-delay-6">
+              <div class="item-header">
+                <span class="item-name">Béarnaise Beef Steak</span>
+                <span class="dots"></span>
+                <span class="item-price">2,099</span>
+              </div>
+              <p class="item-desc">
+                Indulge in our Béarnaise Steak – a tender juicy fillet of beef perched atop a luscious mixed herb Béarnaise sauce. Served with a medley of vegetables, creamy mashed potatoes, and a side of delightful creamy spinach.
+              </p>
+            </div>
+
+            <!-- Live Beef Steak (Table Top Cooking) -->
+            <div class="menu-item fade-in fade-delay-7">
+              <div class="item-header">
+                <span class="item-name">Live Beef Steak (<em>Table Top Cooking</em>)</span>
+                <span class="dots"></span>
+                <span class="item-price">2,049</span>
+              </div>
+              <p class="item-desc">
+                Thin slices of perfectly medium-rare beef paired with the exquisite richness of Café de Paris butter, served alongside golden French fries for an unparalleled culinary experience.<br>
+              </p>
+            </div>
+          </div>
+          <!-- Section-wide note, styled like previous categories -->
+          <p class="section-note fade-in fade-delay-8">A live beef steak, prepared right in front of you!</p>
+        </div>
+        <!-- Beef Steak End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     CONTINENTAL ENTREES SECTION
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="continental">
+          <div class="menu-item-grid">
+            <!-- Moroccan Chicken -->
+            <div class="menu-item fade-in fade-delay-4">
+              <div class="item-header">
+                <span class="item-name">Moroccan Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">1,549</span>
+              </div>
+              <p class="item-desc">
+                2 grilled breast chicken pieces infused with flavorful Moroccan sauce. Served alongside fragrant garlic rice and a side of vibrant vegetables.
+              </p>
+            </div>
+
+            <!-- Swiss Polo -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Swiss Polo</span>
+                <span class="dots"></span>
+                <span class="item-price">1,699</span>
+              </div>
+              <p class="item-desc">
+                Featuring succulent chicken breasts stuffed with a delightful combination of spinach, cheese, and olives. Encased in a crispy potato skin coating, accompanied by creamy mashed potatoes and a flavorful medley of vegetables.
+              </p>
+            </div>
+
+            <!-- Roulade of Chicken -->
+            <div class="menu-item fade-in fade-delay-6">
+              <div class="item-header">
+                <span class="item-name">Roulade of Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">1,699</span>
+              </div>
+              <p class="item-desc">
+                Deep-fried chicken delight with a crispy crumb coating, filled with a tantalizing mixture of multi-colored capsicum, jalapeño, pimento sauce, and melted cheese. Served with mashed potatoes and vegetables.
+              </p>
+            </div>
+
+            <!-- Bernaise Chicken -->
+            <div class="menu-item fade-in fade-delay-7">
+              <div class="item-header">
+                <span class="item-name">Bernaise Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">1,649</span>
+              </div>
+              <p class="item-desc">
+                2 grilled chicken breasts drenched with creamy Béarnaise sauce, served with mashed potatoes and mixed vegetables.
+              </p>
+            </div>
+
+            <!-- Parmesan Chicken -->
+            <div class="menu-item fade-in fade-delay-8">
+              <div class="item-header">
+                <span class="item-name">Parmesan Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">1,749</span>
+              </div>
+              <p class="item-desc">
+                2 breaded chicken pieces served on a bed of fettuccine pasta, generously topped with tomato marinara sauce, black mushrooms, olives, and melted cheese. Served with garlic bread on the side.
+              </p>
+            </div>
+
+            <!-- Jalapeño Stuffed Chicken -->
+            <div class="menu-item fade-in fade-delay-9">
+              <div class="item-header">
+                <span class="item-name">Jalapeño Stuffed Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">1,549</span>
+              </div>
+              <p class="item-desc">
+                Grilled to perfection, the chicken breasts are filled with a mouthwatering combination of jalapeño, sun-dried tomatoes, olives, and melted mozzarella cheese. Served with a creamy jalapeño sauce, mashed potatoes, and vegetables.
+              </p>
+            </div>
+
+            <!-- Tarragon Chicken -->
+            <div class="menu-item fade-in fade-delay-10">
+              <div class="item-header">
+                <span class="item-name">Tarragon Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">1,699</span>
+              </div>
+              <p class="item-desc">
+                2 grilled chicken escalopes accompanied by a rich and creamy mushroom tarragon sauce, perfectly paired with fragrant garlic rice.
+              </p>
+            </div>
+
+            <!-- Spinach Milano -->
+            <div class="menu-item fade-in fade-delay-11">
+              <div class="item-header">
+                <span class="item-name">Spinach Milano</span>
+                <span class="dots"></span>
+                <span class="item-price">1,699</span>
+              </div>
+              <p class="item-desc">
+                Featuring succulent chicken breasts stuffed with a delightful combination of spinach, cheese, and olives. Encased in a crispy potato skin coating, accompanied by creamy mashed potatoes and a flavorful medley of vegetables.
+              </p>
+            </div>
+
+            <!-- Pimento Chicken -->
+            <div class="menu-item fade-in fade-delay-12">
+              <div class="item-header">
+                <span class="item-name">Pimento Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">2,299</span>
+              </div>
+              <p class="item-desc">
+                Crispy-fried chicken bathed in a luscious pimento sauce, served alongside creamy mashed potatoes and perfectly sautéed vegetables.
+              </p>
+            </div>
+
+            <!-- Mutton Shank -->
+            <div class="menu-item fade-in fade-delay-13">
+              <div class="item-header">
+                <span class="item-name">Mutton Shank</span>
+                <span class="dots"></span>
+                <span class="item-price">3,399</span>
+              </div>
+              <p class="item-desc">
+                Succulent lamb shank marinated and steamed to perfection, accompanied by a flavorful espagnole sauce. Served with Italian risotto and a medley of vegetables.
+              </p>
+            </div>
+
+            <!-- Mutton Rib Rack -->
+            <div class="menu-item fade-in fade-delay-14">
+              <div class="item-header">
+                <span class="item-name">Mutton Rib Rack</span>
+                <span class="dots"></span>
+                <span class="item-price">3,199</span>
+              </div>
+              <p class="item-desc">
+                Indulge in a marinated, steamed lamb rib rack complemented by an exquisite espagnole sauce. Served alongside creamy mashed potatoes and sautéed vegetables for a harmonious and flavorful culinary experience.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Continental Entrees End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     PAN ASIAN (CHICKEN) SECTION
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="panasian-chicken">
+          <div class="menu-item-grid">
+            <!-- Chilli Dry -->
+            <div class="menu-item fade-in fade-delay-4">
+              <div class="item-header">
+                <span class="item-name">Chilli Dry</span>
+                <span class="dots"></span>
+                <span class="item-price">1,099</span>
+              </div>
+              <p class="item-desc">
+                Tender chicken pieces stir-fried with dried red chilies, garlic, and soy-based sauce for a bold, fiery flavor.
+              </p>
+            </div>
+
+            <!-- Crunchy Chicken -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Crunchy Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">1,199</span>
+              </div>
+              <p class="item-desc">
+                Crispy, battered chicken tossed in a sweet-spicy glaze and garnished with scallions and sesame seeds.
+              </p>
+            </div>
+
+            <!-- Kung Pao -->
+            <div class="menu-item fade-in fade-delay-6">
+              <div class="item-header">
+                <span class="item-name">Kung Pao</span>
+                <span class="dots"></span>
+                <span class="item-price">1,149</span>
+              </div>
+              <p class="item-desc">
+                Cubes of chicken stir-fried with peanuts, dried chilies, and a savory Sichuan sauce, finished with fresh scallions.
+              </p>
+            </div>
+
+            <!-- Mongolian Chicken -->
+            <div class="menu-item fade-in fade-delay-7">
+              <div class="item-header">
+                <span class="item-name">Mongolian Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">1,199</span>
+              </div>
+              <p class="item-desc">
+                Tender chicken strips sautéed in a brown sugar-soy sauce with onions and scallions for a sweet-and-savory bite.
+              </p>
+            </div>
+
+            <!-- Sesame Chicken -->
+            <div class="menu-item fade-in fade-delay-8">
+              <div class="item-header">
+                <span class="item-name">Sesame Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">1,149</span>
+              </div>
+              <p class="item-desc">
+                Lightly battered chicken glazed in a honey-soy sesame sauce, finished with toasted sesame seeds.
+              </p>
+            </div>
+
+            <!-- Szechuan Chicken -->
+            <div class="menu-item fade-in fade-delay-9">
+              <div class="item-header">
+                <span class="item-name">Szechuan Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">1,149</span>
+              </div>
+              <p class="item-desc">
+                Spicy chicken cubes cooked with Szechuan chili paste, garlic, and ginger, garnished with green onions.
+              </p>
+            </div>
+
+            <!-- Kaori Special Chicken -->
+            <div class="menu-item fade-in fade-delay-10">
+              <div class="item-header">
+                <span class="item-name">Kaori Special Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">1,199</span>
+              </div>
+              <p class="item-desc">
+                House-signature dish featuring chicken tossed in a secret three-pepper blend and a tangy glaze, finished with fresh cilantro.
+              </p>
+            </div>
+
+            <!-- Black Pepper Chicken -->
+            <div class="menu-item fade-in fade-delay-11">
+              <div class="item-header">
+                <span class="item-name">Black Pepper Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">1,049</span>
+              </div>
+              <p class="item-desc">
+                Sautéed chicken strips in a bold black pepper sauce with bell peppers and onions, served piping hot.
+              </p>
+            </div>
+
+            <!-- Manchurian Chicken -->
+            <div class="menu-item fade-in fade-delay-12">
+              <div class="item-header">
+                <span class="item-name">Manchurian Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">999</span>
+              </div>
+              <p class="item-desc">
+                Fried chicken morsels tossed in a sweet-savory Indo-Chinese Manchurian sauce with green chilies and spring onions.
+              </p>
+            </div>
+
+            <!-- Cashew Nut Chicken -->
+            <div class="menu-item fade-in fade-delay-13">
+              <div class="item-header">
+                <span class="item-name">Cashew Nut Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">1,199</span>
+              </div>
+              <p class="item-desc">
+                Chicken stir-fried with crunchy cashews, bell peppers, and a light soy-ginger sauce.
+              </p>
+            </div>
+
+            <!-- Hot Garlic Chicken -->
+            <div class="menu-item fade-in fade-delay-14">
+              <div class="item-header">
+                <span class="item-name">Hot Garlic Chicken</span>
+                <span class="dots"></span>
+                <span class="item-price">999</span>
+              </div>
+              <p class="item-desc">
+                Crisp chicken tossed in a fiery garlic-vinegar sauce, garnished with chili flakes and fresh basil.
+              </p>
+            </div>
+
+            <!-- Chicken Chilli Onion -->
+            <div class="menu-item fade-in fade-delay-15">
+              <div class="item-header">
+                <span class="item-name">Chicken Chilli Onion</span>
+                <span class="dots"></span>
+                <span class="item-price">999</span>
+              </div>
+              <p class="item-desc">
+                Stir-fried chicken with onions and green chilies, flavored with a tangy soy-chili sauce.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Pan-Asian Chicken End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     PAN ASIAN (BEEF) SECTION
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="panasian-beef">
+          <div class="menu-item-grid">
+            <!-- Chilli Dry (Beef) -->
+            <div class="menu-item fade-in fade-delay-4">
+              <div class="item-header">
+                <span class="item-name">Chilli Dry (Beef)</span>
+                <span class="dots"></span>
+                <span class="item-price">1,399</span>
+              </div>
+              <p class="item-desc">
+                Tender beef slices stir-fried with dried red chilies, garlic, and a soy-based sauce for a bold, spicy kick.
+              </p>
+            </div>
+
+            <!-- Mongolian Beef -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Mongolian Beef</span>
+                <span class="dots"></span>
+                <span class="item-price">1,599</span>
+              </div>
+              <p class="item-desc">
+                Thinly sliced beef sautéed in a sweet soy-garlic sauce with scallions and onions for a savory, caramelized finish.
+              </p>
+            </div>
+
+            <!-- Kaori Special Beef -->
+            <div class="menu-item fade-in fade-delay-6">
+              <div class="item-header">
+                <span class="item-name">Kaori Special Beef</span>
+                <span class="dots"></span>
+                <span class="item-price">1,599</span>
+              </div>
+              <p class="item-desc">
+                House-signature premium beef tossed in a rich three-pepper blend and sweet-savory glaze, topped with fresh cilantro.
+              </p>
+            </div>
+
+            <!-- Crunchy Beef -->
+            <div class="menu-item fade-in fade-delay-7">
+              <div class="item-header">
+                <span class="item-name">Crunchy Beef</span>
+                <span class="dots"></span>
+                <span class="item-price">1,599</span>
+              </div>
+              <p class="item-desc">
+                Crispy battered beef strips tossed in a tangy chili-garlic sauce, garnished with sesame seeds and green onions.
+              </p>
+            </div>
+
+            <!-- Sesame Beef -->
+            <div class="menu-item fade-in fade-delay-8">
+              <div class="item-header">
+                <span class="item-name">Sesame Beef</span>
+                <span class="dots"></span>
+                <span class="item-price">1,299</span>
+              </div>
+              <p class="item-desc">
+                Tender beef cubes glazed in a honey-soy sesame sauce, finished with toasted sesame seeds.
+              </p>
+            </div>
+
+            <!-- Beef Chilli Onion -->
+            <div class="menu-item fade-in fade-delay-9">
+              <div class="item-header">
+                <span class="item-name">Beef Chilli Onion</span>
+                <span class="dots"></span>
+                <span class="item-price">1,449</span>
+              </div>
+              <p class="item-desc">
+                Sliced beef stir-fried with onions and green chilies in a tangy soy-chili sauce for a spicy-sweet finish.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Pan-Asian Beef End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     SEAFOOD PANE (All Categories Combined)
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="seafood">
+          <div class="menu-item-grid">
+            <!-- ── Seafood Entrees Header (full‐width) ── -->
+            <div class="menu-item fade-in fade-delay-4" style="grid-column: 1 / -1; text-align: center; margin-bottom: 1rem;">
+              <h2 class="subsection-title">Seafood Entrees</h2>
+            </div>
+
+            <!-- Sole Mediterranean -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Sole Mediterranean</span>
+                <span class="dots"></span>
+                <span class="item-price">1,999</span>
+              </div>
+              <p class="item-desc">
+                Pan-seared sole served with creamy Mediterranean sauce, mashed potatoes, and seasonal vegetables.
+              </p>
+            </div>
+
+            <!-- Atlantic Lemon Sole -->
+            <div class="menu-item fade-in fade-delay-6">
+              <div class="item-header">
+                <span class="item-name">Atlantic Lemon Sole</span>
+                <span class="dots"></span>
+                <span class="item-price">1,999</span>
+              </div>
+              <p class="item-desc">
+                Grilled fillet of sole bursting with lemon and herbs, served with sautéed vegetables and mashed potatoes.
+              </p>
+            </div>
+
+            <!-- Kaori Special Fish -->
+            <div class="menu-item fade-in fade-delay-7">
+              <div class="item-header">
+                <span class="item-name">Kaori Special Fish</span>
+                <span class="dots"></span>
+                <span class="item-price">1,799</span>
+              </div>
+              <p class="item-desc">
+                Fish sautéed with capsicum, onions, and sweetcorn in a tangy sweet-and-sour sauce, served over garlic rice.
+              </p>
+            </div>
+
+            <!-- Fish Chilli Dry -->
+            <div class="menu-item fade-in fade-delay-8">
+              <div class="item-header">
+                <span class="item-name">Fish Chilli Dry</span>
+                <span class="dots"></span>
+                <span class="item-price">1,799</span>
+              </div>
+              <p class="item-desc">
+                Succulent fish pieces tossed in vibrant spices and aromatics, garnished with fresh herbs and a squeeze of lime.
+              </p>
+            </div>
+
+            <!-- Hot Garlic Fish -->
+            <div class="menu-item fade-in fade-delay-9">
+              <div class="item-header">
+                <span class="item-name">Hot Garlic Fish</span>
+                <span class="dots"></span>
+                <span class="item-price">1,549</span>
+              </div>
+              <p class="item-desc">
+                Tender fish fillets stir-fried with garlic, chilies, and scallions; served with steamed jasmine rice.
+              </p>
+            </div>
+
+            <!-- Szechuan Fish -->
+            <div class="menu-item fade-in fade-delay-10">
+              <div class="item-header">
+                <span class="item-name">Szechuan Fish</span>
+                <span class="dots"></span>
+                <span class="item-price">1,499</span>
+              </div>
+              <p class="item-desc">
+                Crispy fish tossed in a bold Szechuan chili sauce with vegetables, finished with a hint of crushed peppercorn.
+              </p>
+            </div>
+
+            <!-- Fish Chilli Onion -->
+            <div class="menu-item fade-in fade-delay-11">
+              <div class="item-header">
+                <span class="item-name">Fish Chilli Onion</span>
+                <span class="dots"></span>
+                <span class="item-price">1,499</span>
+              </div>
+              <p class="item-desc">
+                Crispy fish pieces stir-fried with onions, chilies, and garlic in a savory chili sauce.
+              </p>
+            </div>
+
+            <!-- ── Sashimi Header (full-width) ── -->
+            <div class="menu-item fade-in fade-delay-12" style="grid-column: 1 / -1; text-align: center; margin: 2rem 0 1rem 0;">
+              <h2 class="subsection-title">Sashimi</h2>
+            </div>
+
+            <!-- Salmon Sashimi -->
+            <div class="menu-item fade-in fade-delay-13">
+              <div class="item-header">
+                <span class="item-name">Salmon Sashimi</span>
+                <span class="dots"></span>
+                <span class="item-price">3,199</span>
+              </div>
+              <p class="item-desc">
+                Six slices of fresh Atlantic salmon, served with daikon radish and soy sauce.
+              </p>
+            </div>
+
+            <!-- Crab Sashimi -->
+            <div class="menu-item fade-in fade-delay-14">
+              <div class="item-header">
+                <span class="item-name">Crab Sashimi</span>
+                <span class="dots"></span>
+                <span class="item-price">1,799</span>
+              </div>
+              <p class="item-desc">
+                Six pieces of sweet Hokkaido crab, presented with pickled ginger and ponzu dipping sauce.
+              </p>
+            </div>
+
+            <!-- ── Nigiri Header (full-width) ── -->
+            <div class="menu-item fade-in fade-delay-15" style="grid-column: 1 / -1; text-align: center; margin: 2rem 0 1rem 0;">
+              <h2 class="subsection-title">Nigiri</h2>
+            </div>
+
+            <!-- Salmon Nigiri -->
+            <div class="menu-item fade-in fade-delay-16">
+              <div class="item-header">
+                <span class="item-name">Salmon Nigiri</span>
+                <span class="dots"></span>
+                <span class="item-price">2,449</span>
+              </div>
+              <p class="item-desc">Serving size of 6.</p>
+            </div>
+
+            <!-- Ebi Nigiri -->
+            <div class="menu-item fade-in fade-delay-17">
+              <div class="item-header">
+                <span class="item-name">Ebi Nigiri</span>
+                <span class="dots"></span>
+                <span class="item-price">1,699</span>
+              </div>
+              <p class="item-desc">Serving size of 6.</p>
+            </div>
+
+            <!-- Crab Nigiri -->
+            <div class="menu-item fade-in fade-delay-18">
+              <div class="item-header">
+                <span class="item-name">Crab Nigiri</span>
+                <span class="dots"></span>
+                <span class="item-price">1,849</span>
+              </div>
+              <p class="item-desc">Serving size of 6.</p>
+            </div>
+
+            <!-- ── Sushi Header (full-width) ── -->
+            <div class="menu-item fade-in fade-delay-19" style="grid-column: 1 / -1; text-align: center; margin: 2rem 0 1rem 0;">
+              <h2 class="subsection-title">Sushi</h2>
+            </div>
+
+            <!-- Volcano Maki -->
+            <div class="menu-item fade-in fade-delay-20">
+              <div class="item-header">
+                <span class="item-name">Volcano Maki</span>
+                <span class="dots"></span>
+                <span class="item-price">2,999</span>
+              </div>
+              <p class="item-desc">Serving size of 8.</p>
+            </div>
+
+            <!-- California Roll -->
+            <div class="menu-item fade-in fade-delay-21">
+              <div class="item-header">
+                <span class="item-name">California Roll</span>
+                <span class="dots"></span>
+                <span class="item-price">1,799</span>
+              </div>
+              <p class="item-desc">Serving size of 8.</p>
+            </div>
+
+            <!-- Salmon California -->
+            <div class="menu-item fade-in fade-delay-22">
+              <div class="item-header">
+                <span class="item-name">Salmon California</span>
+                <span class="dots"></span>
+                <span class="item-price">2,499</span>
+              </div>
+              <p class="item-desc">Serving size of 8.</p>
+            </div>
+
+            <!-- Crunchy Maki -->
+            <div class="menu-item fade-in fade-delay-23">
+              <div class="item-header">
+                <span class="item-name">Crunchy Maki</span>
+                <span class="dots"></span>
+                <span class="item-price">1,599</span>
+              </div>
+              <p class="item-desc">Serving size of 8.</p>
+            </div>
+
+            <!-- Sunset Roll -->
+            <div class="menu-item fade-in fade-delay-24">
+              <div class="item-header">
+                <span class="item-name">Sunset Roll</span>
+                <span class="dots"></span>
+                <span class="item-price">1,599</span>
+              </div>
+              <p class="item-desc">Serving size of 8.</p>
+            </div>
+
+            <!-- Salmon Maki -->
+            <div class="menu-item fade-in fade-delay-25">
+              <div class="item-header">
+                <span class="item-name">Salmon Maki</span>
+                <span class="dots"></span>
+                <span class="item-price">2,199</span>
+              </div>
+              <p class="item-desc">Serving size of 8.</p>
+            </div>
+
+            <!-- Kappa Maki -->
+            <div class="menu-item fade-in fade-delay-26">
+              <div class="item-header">
+                <span class="item-name">Kappa Maki</span>
+                <span class="dots"></span>
+                <span class="item-price">999</span>
+              </div>
+              <p class="item-desc">Serving size of 8.</p>
+            </div>
+
+            <!-- Dragon Roll -->
+            <div class="menu-item fade-in fade-delay-27">
+              <div class="item-header">
+                <span class="item-name">Dragon Roll</span>
+                <span class="dots"></span>
+                <span class="item-price">2,799</span>
+              </div>
+              <p class="item-desc">Serving size of 8.</p>
+            </div>
+
+            <!-- Crispy Zoo Roll -->
+            <div class="menu-item fade-in fade-delay-28">
+              <div class="item-header">
+                <span class="item-name">Crispy Zoo Roll</span>
+                <span class="dots"></span>
+                <span class="item-price">1,799</span>
+              </div>
+              <p class="item-desc">Serving size of 8.</p>
+            </div>
+
+            <!-- Chicken Katsu Roll -->
+            <div class="menu-item fade-in fade-delay-29">
+              <div class="item-header">
+                <span class="item-name">Chicken Katsu Roll</span>
+                <span class="dots"></span>
+                <span class="item-price">1,199</span>
+              </div>
+              <p class="item-desc">Serving size of 8.</p>
+            </div>
+
+            <!-- Dynamite Roll -->
+            <div class="menu-item fade-in fade-delay-30">
+              <div class="item-header">
+                <span class="item-name">Dynamite Roll</span>
+                <span class="dots"></span>
+                <span class="item-price">1,699</span>
+              </div>
+              <p class="item-desc">Serving size of 8.</p>
+            </div>
+
+            <!-- ── Ending Note (full-width) ── -->
+            <div class="menu-item fade-in fade-delay-31"
+                 style="grid-column: 1 / -1; text-align: right; margin-top: 2rem; font-size: 0.85rem; color: #c2c2c2;">
+              *All prices are exclusive of taxes.
+            </div>
+          </div>
+        </div>
+        <!-- Seafood Pane End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     TEPPANYAKI PANE
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="teppanyaki">
+          <div class="menu-item-grid">
+            <!-- Chicken Teppanyaki -->
+            <div class="menu-item fade-in fade-delay-4">
+              <div class="item-header">
+                <span class="item-name">Chicken Teppanyaki</span>
+                <span class="dots"></span>
+                <span class="item-price">2,149</span>
+              </div>
+              <p class="item-desc">
+                A tantalizing dish showcasing tender chicken cubes marinated in garlic,
+                butter, and soy sauce, infused with the flavors of Togarashi spice, served
+                with sticky garlic rice.
+              </p>
+            </div>
+
+            <!-- Beef Teppanyaki -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Beef Teppanyaki</span>
+                <span class="dots"></span>
+                <span class="item-price">2,549</span>
+              </div>
+              <p class="item-desc">
+                A tantalizing dish showcasing tender beef cubes marinated in garlic, butter,
+                and soy sauce, infused with the flavors of Togarashi spice, served with sticky
+                garlic rice.
+              </p>
+            </div>
+
+            <!-- Prawn Teppanyaki -->
+            <div class="menu-item fade-in fade-delay-6">
+              <div class="item-header">
+                <span class="item-name">Prawn Teppanyaki</span>
+                <span class="dots"></span>
+                <span class="item-price">2,699</span>
+              </div>
+              <p class="item-desc">
+                A tantalizing dish showcasing tender prawn cubes marinated in garlic, butter,
+                and soy sauce, infused with the flavors of Togarashi spice, served with sticky
+                garlic rice.
+              </p>
+            </div>
+
+            <!-- Fish Teppanyaki -->
+            <div class="menu-item fade-in fade-delay-7">
+              <div class="item-header">
+                <span class="item-name">Fish Teppanyaki</span>
+                <span class="dots"></span>
+                <span class="item-price">2,649</span>
+              </div>
+              <p class="item-desc">
+                A tantalizing dish showcasing tender fish cubes marinated in garlic, butter,
+                and soy sauce, infused with the flavors of Togarashi spice, served with sticky
+                garlic rice.
+              </p>
+            </div>
+
+            <!-- Special Teppanyaki -->
+            <div class="menu-item fade-in fade-delay-8">
+              <div class="item-header">
+                <span class="item-name">Special Teppanyaki</span>
+                <span class="dots"></span>
+                <span class="item-price">2,249</span>
+              </div>
+              <p class="item-desc">
+                Savor our special teppanyaki – sole fish, chicken, beef stir-fried with veggies,
+                served with Japanese garlic rice for a flavorful delight.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Teppanyaki Pane End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     PASTAS PANE
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="pastas">
+          <div class="menu-item-grid">
+            <!-- Penne Arrabbiata Pasta -->
+            <div class="menu-item fade-in fade-delay-4">
+              <div class="item-header">
+                <span class="item-name">Penne Arrabbiata Pasta</span>
+                <span class="dots"></span>
+                <span class="item-price">1,099</span>
+              </div>
+              <p class="item-desc">
+                Classic penne pasta tossed in a spicy tomato‐garlic sauce, finished with fresh basil.
+              </p>
+            </div>
+
+            <!-- Fettuccine Alfredo Pasta -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Fettuccine Alfredo Pasta</span>
+                <span class="dots"></span>
+                <span class="item-price">1,099</span>
+              </div>
+              <p class="item-desc">
+                Fettuccine noodles in a rich, creamy Parmesan cheese sauce, garnished with parsley.
+              </p>
+            </div>
+
+            <!-- Penne with Smoked Chicken Pasta -->
+            <div class="menu-item fade-in fade-delay-6">
+              <div class="item-header">
+                <span class="item-name">Penne with Smoked Chicken Pasta</span>
+                <span class="dots"></span>
+                <span class="item-price">1,199</span>
+              </div>
+              <p class="item-desc">
+                Penne tossed with smoked chicken strips, sun‐dried tomatoes, and a light cream sauce.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Pastas Pane End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     CURRIES PANE
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="curries">
+          <div class="menu-item-grid">
+            <!-- Chicken Kyoto Curry -->
+            <div class="menu-item fade-in fade-delay-4">
+              <div class="item-header">
+                <span class="item-name">Chicken Kyoto Curry</span>
+                <span class="dots"></span>
+                <span class="item-price">1,349</span>
+              </div>
+              <p class="item-desc">
+                Tender chicken simmered in a coconut‐milk based curry with Kyoto spices, served with rice.
+              </p>
+            </div>
+
+            <!-- Chicken Teriyaki -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Chicken Teriyaki</span>
+                <span class="dots"></span>
+                <span class="item-price">1,249</span>
+              </div>
+              <p class="item-desc">
+                Grilled chicken glazed with sweet‐savory teriyaki sauce, served over steamed rice.
+              </p>
+            </div>
+
+            <!-- Chicken Katsu Curry -->
+            <div class="menu-item fade-in fade-delay-6">
+              <div class="item-header">
+                <span class="item-name">Chicken Katsu Curry</span>
+                <span class="dots"></span>
+                <span class="item-price">1,499</span>
+              </div>
+              <p class="item-desc">
+                Crispy breaded chicken cutlet topped with Japanese curry gravy, served with rice.
+              </p>
+            </div>
+
+            <!-- Green Curry -->
+            <div class="menu-item fade-in fade-delay-7">
+              <div class="item-header">
+                <span class="item-name">Green Curry</span>
+                <span class="dots"></span>
+                <span class="item-price">1,149</span>
+              </div>
+              <p class="item-desc">
+                Fragrant Thai‐style green curry with vegetables and choice of protein, served with jasmine rice.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Curries Pane End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     RICE & NOODLES PANE
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="rice-noodles">
+          <div class="menu-item-grid">
+            <!-- Egg Fried Rice -->
+            <div class="menu-item fade-in fade-delay-4">
+              <div class="item-header">
+                <span class="item-name">Egg Fried Rice</span>
+                <span class="dots"></span>
+                <span class="item-price">299</span>
+              </div>
+              <p class="item-desc">
+                Fluffy rice stir‐fried with egg, garlic, and scallions.
+              </p>
+            </div>
+
+            <!-- Vegetable Rice -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Vegetable Rice</span>
+                <span class="dots"></span>
+                <span class="item-price">249</span>
+              </div>
+              <p class="item-desc">
+                Steamed rice tossed with mixed seasonal vegetables.
+              </p>
+            </div>
+
+            <!-- Garlic Rice -->
+            <div class="menu-item fade-in fade-delay-6">
+              <div class="item-header">
+                <span class="item-name">Garlic Rice</span>
+                <span class="dots"></span>
+                <span class="item-price">299</span>
+              </div>
+              <p class="item-desc">
+                Aromatic rice sautéed with garlic and butter.
+              </p>
+            </div>
+
+            <!-- Special Rice -->
+            <div class="menu-item fade-in fade-delay-7">
+              <div class="item-header">
+                <span class="item-name">Special Rice</span>
+                <span class="dots"></span>
+                <span class="item-price">450</span>
+              </div>
+              <p class="item-desc">
+                Fragrant rice medley with egg, peas, carrots, and a hint of sesame oil.
+              </p>
+            </div>
+
+            <!-- Thai Spicy Noodles -->
+            <div class="menu-item fade-in fade-delay-8">
+              <div class="item-header">
+                <span class="item-name">Thai Spicy Noodles</span>
+                <span class="dots"></span>
+                <span class="item-price">1,149</span>
+              </div>
+              <p class="item-desc">
+                Rice noodles tossed in a fiery Thai chili‐lime sauce with basil and vegetables.
+              </p>
+            </div>
+
+            <!-- Special Chowmein -->
+            <div class="menu-item fade-in fade-delay-9">
+              <div class="item-header">
+                <span class="item-name">Special Chowmein</span>
+                <span class="dots"></span>
+                <span class="item-price">1,199</span>
+              </div>
+              <p class="item-desc">
+                Stir‐fried noodles with mixed seafood, vegetables, and house special sauce.
+              </p>
+            </div>
+
+            <!-- Chicken Chowmein -->
+            <div class="menu-item fade-in fade-delay-10">
+              <div class="item-header">
+                <span class="item-name">Chicken Chowmein</span>
+                <span class="dots"></span>
+                <span class="item-price">999</span>
+              </div>
+              <p class="item-desc">
+                Noodles stir‐fried with chicken, onion, carrots, and savory soy sauce.
+              </p>
+            </div>
+
+            <!-- Vegetable Chowmein -->
+            <div class="menu-item fade-in fade-delay-11">
+              <div class="item-header">
+                <span class="item-name">Vegetable Chowmein</span>
+                <span class="dots"></span>
+                <span class="item-price">599</span>
+              </div>
+              <p class="item-desc">
+                Wheat noodles tossed with mixed vegetables and light soy‐garlic sauce.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Rice & Noodles Pane End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     DESSERTS PANE
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="desserts">
+          <div class="menu-item-grid">
+            <!-- Lotus Cheese Cake -->
+            <div class="menu-item fade-in fade-delay-4">
+              <div class="item-header">
+                <span class="item-name">Lotus Cheese Cake</span>
+                <span class="dots"></span>
+                <span class="item-price">699</span>
+              </div>
+              <p class="item-desc">
+                Creamy cheesecake infused with Lotus Biscoff crumbs, served with a caramel drizzle.
+              </p>
+            </div>
+
+            <!-- Bread Pudding -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Bread Pudding</span>
+                <span class="dots"></span>
+                <span class="item-price">799</span>
+              </div>
+              <p class="item-desc">
+                Warm, custardy bread pudding baked with raisins and served with vanilla sauce.
+              </p>
+            </div>
+
+            <!-- Brownie Ice Cream -->
+            <div class="menu-item fade-in fade-delay-6">
+              <div class="item-header">
+                <span class="item-name">Brownie Ice Cream</span>
+                <span class="dots"></span>
+                <span class="item-price">599</span>
+              </div>
+              <p class="item-desc">
+                Rich chocolate brownie topped with a scoop of housemade vanilla bean ice cream.
+              </p>
+            </div>
+
+            <!-- Pistachio Three Milk -->
+            <div class="menu-item fade-in fade-delay-7">
+              <div class="item-header">
+                <span class="item-name">Pistachio Three Milk</span>
+                <span class="dots"></span>
+                <span class="item-price">599</span>
+              </div>
+              <p class="item-desc">
+                Moist cake soaked in three types of milk, topped with crushed pistachios.
+              </p>
+            </div>
+
+            <!-- Molten Lava Cake -->
+            <div class="menu-item fade-in fade-delay-8">
+              <div class="item-header">
+                <span class="item-name">Molten Lava Cake</span>
+                <span class="dots"></span>
+                <span class="item-price">649</span>
+              </div>
+              <p class="item-desc">
+                Individual chocolate cake with a gooey molten center, served warm with a dusting of powdered sugar.
+              </p>
+            </div>
+
+            <!-- Fudge Cake Slice -->
+            <div class="menu-item fade-in fade-delay-9">
+              <div class="item-header">
+                <span class="item-name">Fudge Cake Slice</span>
+                <span class="dots"></span>
+                <span class="item-price">699</span>
+              </div>
+              <p class="item-desc">
+                Decadent, layered chocolate fudge cake slice finished with chocolate ganache.
+              </p>
+            </div>
+
+            <!-- Caramel Melting Dome -->
+            <div class="menu-item fade-in fade-delay-10">
+              <div class="item-header">
+                <span class="item-name">Caramel Melting Dome</span>
+                <span class="dots"></span>
+                <span class="item-price">1,049</span>
+              </div>
+              <p class="item-desc">
+                Warm chocolate shell poured over caramel ice cream—watch it melt into a pool of caramel and chocolate.
+              </p>
+            </div>
+
+            <!-- New York Cheese Cake Slice -->
+            <div class="menu-item fade-in fade-delay-11">
+              <div class="item-header">
+                <span class="item-name">New York Cheese Cake Slice</span>
+                <span class="dots"></span>
+                <span class="item-price">499</span>
+              </div>
+              <p class="item-desc">
+                Classic dense and creamy New York–style cheesecake served chilled with a strawberry coulis.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Desserts Pane End -->
+
+        <!-- ──────────────────────────────────────────────────────────────────────────
+     BEVERAGES PANE
+────────────────────────────────────────────────────────────────────────── -->
+        <div class="menu-content fade-in fade-delay-3" id="beverages">
+          <div class="menu-item-grid">
+            <!-- Mocktails Section Header -->
+            <div class="menu-item fade-in fade-delay-4" style="grid-column: 1 / -1; text-align: center; margin-bottom: 1rem;">
+              <h2 class="subsection-title">Mocktails</h2>
+            </div>
+
+            <!-- Pina Colada -->
+            <div class="menu-item fade-in fade-delay-5">
+              <div class="item-header">
+                <span class="item-name">Pina Colada</span>
+                <span class="dots"></span>
+                <span class="item-price">550</span>
+              </div>
+              <p class="item-desc">A tropical blend of pineapple, coconut cream, and ice, shaken to perfection.</p>
+            </div>
+
+            <!-- Mint Margarita -->
+            <div class="menu-item fade-in fade-delay-6">
+              <div class="item-header">
+                <span class="item-name">Mint Margarita</span>
+                <span class="dots"></span>
+                <span class="item-price">349</span>
+              </div>
+              <p class="item-desc">Refreshing mint and lime shaken with a hint of sugar, served over ice.</p>
+            </div>
+
+            <!-- Strawberry Mojito -->
+            <div class="menu-item fade-in fade-delay-7">
+              <div class="item-header">
+                <span class="item-name">Strawberry Mojito</span>
+                <span class="dots"></span>
+                <span class="item-price">649</span>
+              </div>
+              <p class="item-desc">Fresh strawberries muddled with mint, lime, and a splash of soda water.</p>
+            </div>
+
+            <!-- Wild Berry Smoothie -->
+            <div class="menu-item fade-in fade-delay-8">
+              <div class="item-header">
+                <span class="item-name">Wild Berry Smoothie</span>
+                <span class="dots"></span>
+                <span class="item-price">699</span>
+              </div>
+              <p class="item-desc">A creamy blend of mixed berries, yogurt, and honey.</p>
+            </div>
+
+            <!-- Kiwi Thunder -->
+            <div class="menu-item fade-in fade-delay-9">
+              <div class="item-header">
+                <span class="item-name">Kiwi Thunder</span>
+                <span class="dots"></span>
+                <span class="item-price">699</span>
+              </div>
+              <p class="item-desc">Zesty kiwi and lime juice with a hint of mint, served over crushed ice.</p>
+            </div>
+
+            <!-- Section Break -->
+            <div class="menu-item fade-in fade-delay-10" style="grid-column: 1 / -1; text-align: center; margin: 2rem 0 1rem 0;">
+              <h2 class="subsection-title">Hot / Cold</h2>
+            </div>
+
+            <!-- Hazelnut Latte -->
+            <div class="menu-item fade-in fade-delay-11">
+              <div class="item-header">
+                <span class="item-name">Hazelnut Latte</span>
+                <span class="dots"></span>
+                <span class="item-price">599</span>
+              </div>
+              <p class="item-desc">Espresso blended with steamed milk and hazelnut syrup.</p>
+            </div>
+
+            <!-- Caramel Latte -->
+            <div class="menu-item fade-in fade-delay-12">
+              <div class="item-header">
+                <span class="item-name">Caramel Latte</span>
+                <span class="dots"></span>
+                <span class="item-price">599</span>
+              </div>
+              <p class="item-desc">Rich espresso combined with steamed milk and caramel sauce.</p>
+            </div>
+
+            <!-- Vanilla Latte -->
+            <div class="menu-item fade-in fade-delay-13">
+              <div class="item-header">
+                <span class="item-name">Vanilla Latte</span>
+                <span class="dots"></span>
+                <span class="item-price">599</span>
+              </div>
+              <p class="item-desc">Smooth espresso with steamed milk and vanilla syrup.</p>
+            </div>
+
+            <!-- Section Break -->
+            <div class="menu-item fade-in fade-delay-14" style="grid-column: 1 / -1; text-align: center; margin: 2rem 0 1rem 0;">
+              <h2 class="subsection-title">Drinks</h2>
+            </div>
+
+            <!-- Soft Drink -->
+            <div class="menu-item fade-in fade-delay-15">
+              <div class="item-header">
+                <span class="item-name">Soft Drink</span>
+                <span class="dots"></span>
+                <span class="item-price">149</span>
+              </div>
+              <p class="item-desc">Choice of cola, lemonade, or soda water, served chilled.</p>
+            </div>
+
+            <!-- Fresh Lime -->
+            <div class="menu-item fade-in fade-delay-16">
+              <div class="item-header">
+                <span class="item-name">Fresh Lime</span>
+                <span class="dots"></span>
+                <span class="item-price">349</span>
+              </div>
+              <p class="item-desc">Freshly squeezed lime juice served over ice.</p>
+            </div>
+
+            <!-- Perrier Water -->
+            <div class="menu-item fade-in fade-delay-17">
+              <div class="item-header">
+                <span class="item-name">Perrier Water</span>
+                <span class="dots"></span>
+                <span class="item-price">599</span>
+              </div>
+              <p class="item-desc">Sparkling mineral water—imported and served chilled.</p>
+            </div>
+
+            <!-- Mineral Water (Large/Small) -->
+            <div class="menu-item fade-in fade-delay-18">
+              <div class="item-header">
+                <span class="item-name">Mineral Water</span>
+                <span class="dots"></span>
+                <span class="item-price">
+                  Large – 149  Small – 59
+                </span>
+              </div>
+              <p class="item-desc">Still mineral water in large or small bottle.</p>
+            </div>
+
+            <!-- Ending Note -->
+            <div class="menu-item fade-in fade-delay-19" style="grid-column: 1 / -1; text-align: right; margin-top: 2rem; font-size: 1rem; color: #c2c2c2;">
+              *All prices are exclusive of taxes.
+            </div>
+          </div>
+        </div>
+        <!-- Beverages Pane End -->
+      </div>
+    </div>
+  </section>
+
+   <!-- FOOTER -->
+      <footer id="site-footer">
+        <div class="footer-inner fade-item">
+          <!-- KAORI Logo -->
+          <div class="footer-logo">
+            <img src="Resources/kaori-footer.png" alt="KAORI Logo" />
+          </div>
+
+          <!-- “Follow Us” -->
+          <h2 class="social-title">Follow Us</h2>
+
+          <!-- Social Icons -->
+          <div class="social-icons">
+            <a href="https://facebook.com/yourhandle" class="social-link" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com/yourhandle" class="social-link" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/yourhandle" class="social-link" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://behance.net/yourhandle" class="social-link" target="_blank">
+              <i class="fab fa-behance"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
+   
+
+
+
+  <!-- ─────── JavaScript for the tabs ─────── -->
+  <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabs = document.querySelectorAll(".menu-tab");
+      const panes = document.querySelectorAll(".menu-content");
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => t.classList.remove("active"));
+          panes.forEach((p) => p.classList.remove("active"));
+          tab.classList.add("active");
+          document.getElementById(tab.dataset.target).classList.add("active");
+        });
+      });
+    })
+
+    document.addEventListener("DOMContentLoaded", () => {
+  const fadeItems = document.querySelectorAll('.fade-in, .fade-item');
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  fadeItems.forEach(el => observer.observe(el));
+});
+
+  </script>  
+
+<script>
+  // Select DOM elements
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-nav-overlay');
+  const navLinks = document.querySelectorAll('.mobile-nav a');
+
+  // Toggle menu on hamburger click
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('active');
+  });
+
+  // Close menu when any link is clicked
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('active');
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const overlay   = document.querySelector('.mobile-nav-overlay');
+
+    // Toggle the overlay
+    hamburger.addEventListener('click', () => {
+      overlay.classList.toggle('open');
+    });
+
+    // Close when any link is clicked
+    overlay.querySelectorAll('a').forEach(link =>
+      link.addEventListener('click', () => overlay.classList.remove('open'))
+    );
+  });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fadeItems = document.querySelectorAll('.fade-item, .fade-in');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      fadeItems.forEach(el => observer.observe(el));
+    });
+  </script>
+
+  <!-- Preloader initialization -->
+  <script>
+    window.addEventListener('load', () => {
+      const pre  = document.getElementById('preloader');
+      const logo = document.getElementById('preloader-logo');
+      const body = document.body;
+      logo.animate([
+        { opacity: 0, transform: 'scale(0.95)' },
+        { opacity: 1, transform: 'scale(1)' }
+      ], {
+        duration: 1000,
+        easing: 'ease-out',
+        fill: 'forwards'
+      });
+      setTimeout(() => {
+        pre.classList.add('hide');
+        body.classList.remove('preloading');
+      }, 1600);
+    });
+  </script>
+
+
+
+</body>
+</html>
