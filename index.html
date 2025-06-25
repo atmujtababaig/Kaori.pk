@@ -876,6 +876,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+  <script>
+  if (window.innerWidth < 768) {
+    document.querySelectorAll('.fade-item, .fade-in').forEach(el => {
+      el.classList.add('visible');
+    });
+  }
+</script>
+
+
 
 
 </body>
