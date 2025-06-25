@@ -877,11 +877,21 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
   <script>
-  if (window.innerWidth < 768) {
-    document.querySelectorAll('.fade-item, .fade-in').forEach(el => {
-      el.classList.add('visible');
+if (window.innerWidth < 768) {
+  const elements = document.querySelectorAll('.fade-item, .fade-in');
+  const revealOnScroll = () => {
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        el.classList.add('visible');
+      }
     });
-  }
+  };
+
+  revealOnScroll();
+  window.addEventListener('scroll', revealOnScroll);
+}
+
 </script>
 
 
