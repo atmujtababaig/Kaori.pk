@@ -734,6 +734,36 @@
   }
 }
 
+@media (max-width: 768px) {
+  main[data-scroll-container] {
+    display: block !important;
+    overflow: auto !important;
+    height: auto !important;
+  }
+
+  body {
+    overflow: auto !important;
+  }
+
+  .fade-item,
+  .fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  section,
+  .cards,
+  .image-split-section,
+  .booking-section,
+  .menu-section,
+  .about-history-section {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+
 
 
 
