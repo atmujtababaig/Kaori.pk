@@ -745,12 +745,6 @@
     overflow: auto !important;
   }
 
-.fade-item.visible,
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 
   section,
   .cards,
