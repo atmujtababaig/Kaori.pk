@@ -747,33 +747,25 @@
 
 
 
-/* ==========================================================================
-   ULTRA-NARROW DEVICES FIXES (≤380px)
-   ========================================================================== */
+/* ULTRA NARROW FIX @ ≤380px */
 @media (max-width: 380px) {
-
-  /* 🧠 Hero Headline Responsive Font & Position */
+  /* Headline bilkul viewport ke andar */
   .headline {
-    font-size: 9vw !important;
-    left: 10px !important;
-    bottom: 10% !important;
-    text-align: left;
+    position: absolute !important;
+    top: 20px !important;
+    left: 12px !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    font-size: 8vw !important;
+    line-height: 1.1 !important;
+    text-align: left !important;
   }
-
   .headline h1 div {
-    word-break: break-word;
-    white-space: normal;
+    white-space: normal !important;
+    word-break: break-word !important;
   }
 
-  /* 🧠 Card Heading Size & Alignment */
-  .card-heading {
-    font-size: 1.1rem !important;
-    right: 12px !important;
-    bottom: 16px !important;
-    text-align: right !important;
-  }
-
-  /* 🧠 Ensure cards don't overflow horizontally */
+  /* Cards overflow na hon */
   .right-container {
     padding: 0 12px !important;
   }
@@ -781,26 +773,35 @@
     width: 100% !important;
     height: 140px !important;
   }
+  .card-heading {
+    font-size: 1.2rem !important;
+    right: 16px !important;
+    bottom: 14px !important;
+    line-height: 1.1 !important;
+  }
 
-  /* 🧠 Booking Form Uses Full Width */
+  /* Booking form full width */
+  .booking-container {
+    flex-direction: column !important;
+    padding: 0 1rem !important;
+  }
+  .booking-left {
+    display: none !important; /* agar image hide karni ho */
+  }
   .booking-right {
-    padding: 1.5rem 1rem !important;
-  }
-  .booking-form {
-    max-width: 100% !important;
     width: 100% !important;
+    padding: 1rem !important;
   }
+  .booking-form,
   .borders {
-    padding: 1.5rem 1rem !important;
+    width: 100% !important;
     max-width: 100% !important;
-    margin: 0 auto;
-  }
-
-  /* 🧠 Optional: Menu Section Padding */
-  .menu-section {
-    padding: 2rem 1rem !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
   }
 }
+
 
 
 
