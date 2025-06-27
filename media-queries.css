@@ -747,62 +747,6 @@
 
 
 
-@media (max-width: 380px) {
-  /* 1) Hero headline bilkul center */
-  .headline {
-    top: 50% !important;
-    bottom: auto !important;
-    left: 12px !important;
-    transform: translateY(-50%) !important;
-    font-size: 9vw !important;
-    line-height: 1.1 !important;
-    text-align: left !important;
-  }
-  .headline h1 div {
-    white-space: normal !important;
-    word-break: break-word !important;
-  }
-
-  /* 2) Hero cards & horizontal cards full-width, headings wrap */
-  .right-container,
-  .section-3 .horizontal-container,
-  .section-3 .cards {
-    padding: 0 12px !important;
-    margin: 0 !important;
-  }
-  .right-container .card,
-  .section-3 .sample-card {
-    width: 100% !important;
-    height: auto !important;
-    padding: 1rem !important;
-  }
-  .card-heading,
-  .section-3 .sample-card .text-content h2 {
-    font-size: 1.8rem !important;
-    line-height: 1.2 !important;
-    white-space: normal !important;
-    word-break: break-word !important;
-  }
-
-  /* 3) Booking form full-width */
-  .booking-container {
-    flex-direction: column !important;
-    padding: 0 !important;
-  }
-  .booking-right,
-  .borders {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0.5rem !important;
-    padding: 1rem !important;
-  }
-  .booking-form input,
-  .booking-form button {
-    width: 100% !important;
-    padding: 0.6rem !important;
-    font-size: 0.9rem !important;
-  }
-}
 
 
 
