@@ -747,6 +747,60 @@
 
 
 
+/* ==========================================================================
+   ULTRA-NARROW DEVICES FIXES (≤380px)
+   ========================================================================== */
+@media (max-width: 380px) {
+
+  /* 🧠 Hero Headline Responsive Font & Position */
+  .headline {
+    font-size: 9vw !important;
+    left: 10px !important;
+    bottom: 10% !important;
+    text-align: left;
+  }
+
+  .headline h1 div {
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  /* 🧠 Card Heading Size & Alignment */
+  .card-heading {
+    font-size: 1.1rem !important;
+    right: 12px !important;
+    bottom: 16px !important;
+    text-align: right !important;
+  }
+
+  /* 🧠 Ensure cards don't overflow horizontally */
+  .right-container {
+    padding: 0 12px !important;
+  }
+  .right-container .card {
+    width: 100% !important;
+    height: 140px !important;
+  }
+
+  /* 🧠 Booking Form Uses Full Width */
+  .booking-right {
+    padding: 1.5rem 1rem !important;
+  }
+  .booking-form {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .borders {
+    padding: 1.5rem 1rem !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+  }
+
+  /* 🧠 Optional: Menu Section Padding */
+  .menu-section {
+    padding: 2rem 1rem !important;
+  }
+}
 
 
 
