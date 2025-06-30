@@ -347,6 +347,14 @@ body.preloading * {
   flex-wrap: wrap;
 }
 
+.faded-photo-top {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Columns */
 .split-left,
 .split-right {
