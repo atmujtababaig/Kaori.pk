@@ -668,7 +668,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
   // Elements
   const pre       = document.getElementById('preloader');
   const logo      = document.getElementById('preloader-logo');
@@ -678,9 +678,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks  = overlay?.querySelectorAll('a') || [];
   const isMobile  = window.innerWidth < 768;
 
-  // 1) Flatpickr Init
- // FLATPICKR INIT — use appendTo + high z-index
-if (typeof flatpickr !== 'undefined') {
+  // 1) FLATPICKR INIT (append to body so it won’t get clipped)
   flatpickr("#date-picker", {
     altInput: true,
     altFormat: "Y-m-d",
@@ -688,8 +686,8 @@ if (typeof flatpickr !== 'undefined') {
     minDate: "today",
     clickOpens: true,
     appendTo: document.body,
-    onReady: (selectedDates, dateStr, instance) => {
-      instance.calendarContainer.style.zIndex = '10000';
+    onReady: function(_, __, instance) {
+      instance.calendarContainer.style.zIndex = "10000";
     }
   });
   flatpickr("#time-picker", {
@@ -701,24 +699,23 @@ if (typeof flatpickr !== 'undefined') {
     time_24hr: false,
     clickOpens: true,
     appendTo: document.body,
-    onReady: (sel, str, inst) => {
-      inst.calendarContainer.style.zIndex = '10000';
+    onReady: function(_, __, instance) {
+      instance.calendarContainer.style.zIndex = "10000";
     }
   });
-}
 
-
-  // 2) Mobile: skip preloader, show content, start animations
+  // 2) MOBILE: skip preloader & start animations immediately
   function startMobileAnimations() {
     pre?.classList.add('hidden');
     document.body.classList.remove('preloading');
-    main && (main.style.display = 'block');
+    main  && (main.style.display = 'block');
     initContentAnimations();
   }
   if (isMobile) startMobileAnimations();
 
-  // 3) Fade-in & mobile delays
+  // 3) SET UP FADE-IN & MOBILE DELAY LOGIC
   function initContentAnimations() {
+    // mobile-specific delays
     function applyMobileDelays() {
       if (window.innerWidth < 768) {
         document.getElementById('navbar')?.classList.add('fade-delay-left');
@@ -728,8 +725,8 @@ if (typeof flatpickr !== 'undefined') {
     applyMobileDelays();
     window.addEventListener('resize', applyMobileDelays);
 
+    // intersection observer for fade-in
     const items = document.querySelectorAll('.fade-item, .fade-in');
-    const obsOpts = { threshold: 0.1 };
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -737,11 +734,11 @@ if (typeof flatpickr !== 'undefined') {
           obs.unobserve(entry.target);
         }
       });
-    }, obsOpts);
+    }, { threshold: 0.1 });
     items.forEach(el => observer.observe(el));
   }
 
-  // 4) GSAP preloader timeline
+  // 4) GSAP PRELOADER TIMELINE
   const tl = gsap.timeline({ defaults: { duration: 1, ease: 'sine.out' } });
   tl
     .to(logo, { opacity: 1, scale: 1 })
@@ -758,10 +755,11 @@ if (typeof flatpickr !== 'undefined') {
       }
     });
 
-  // 5) Smooth internal <a> navigation
+  // 5) UNIFIED <a> CLICK HANDLER
   document.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', e => {
       const href = link.getAttribute('href');
+      // same-page hash
       if (href?.startsWith('#') && document.querySelector(href)) {
         e.preventDefault();
         pre?.classList.add('hidden');
@@ -770,11 +768,12 @@ if (typeof flatpickr !== 'undefined') {
         document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
         return;
       }
+      // internal page nav
       if (link.origin === location.origin && !href.startsWith('#')) {
         e.preventDefault();
         pre?.classList.remove('hidden');
         gsap.set(pre,  { opacity: 1 });
-        gsap.set(logo, { opacity: 0, scale: 0.95 });
+        gsap.set(logo,{ opacity: 0, scale: 0.95 });
         main && (main.style.display = 'none');
         tl.restart();
         setTimeout(() => window.location.href = href, 500);
@@ -782,7 +781,7 @@ if (typeof flatpickr !== 'undefined') {
     });
   });
 
-  // 6) Menu Tabs
+  // 6) MENU TABS
   document.querySelectorAll('.menu-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
@@ -792,7 +791,7 @@ if (typeof flatpickr !== 'undefined') {
     });
   });
 
-  // 7) Horizontal Scroll Engine
+  // 7) HORIZONTAL SCROLL ENGINE
   const spaceHolder = document.querySelector('.space-holder');
   const horizontal  = document.querySelector('.horizontal');
   function calcHeight(ref) {
@@ -810,7 +809,7 @@ if (typeof flatpickr !== 'undefined') {
     if (sticky && horizontal) horizontal.style.transform = `translateX(-${sticky.offsetTop}px)`;
   });
 
-  // 8) Scroll Ring Visibility
+  // 8) SCROLL RING VISIBILITY
   const ring = document.querySelector('.scroll-ring-indicator');
   if (ring && spaceHolder) {
     window.addEventListener('scroll', () => {
@@ -819,7 +818,7 @@ if (typeof flatpickr !== 'undefined') {
     });
   }
 
-  // 9) Mobile Hamburger & Overlay Toggle
+  // 9) MOBILE HAMBURGER & OVERLAY TOGGLE
   if (hamburger && overlay) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('open');
@@ -835,7 +834,7 @@ if (typeof flatpickr !== 'undefined') {
     });
   }
 
-  // 10) About/History Cards Click
+  // 10) ABOUT/HISTORY CARDS CLICK
   document.querySelectorAll('.about-history-section .card').forEach(card => {
     card.addEventListener('click', () => {
       const arrow = card.querySelector('a.arrow');
@@ -844,14 +843,3 @@ if (typeof flatpickr !== 'undefined') {
   });
 });
 </script>
-
-
-
-
-
-
-</body>
-
-
-
-</html>
