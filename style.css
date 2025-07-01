@@ -99,7 +99,7 @@ body.preloading * {
 /* Headline */
 .headline {
   position: absolute;
-  bottom: 200px;
+  bottom: 185px;
   left: 70px;
   color: #f0eada;
   font-family: "Cormorant Garamond", serif;
@@ -1824,9 +1824,4 @@ display: flex;
     overflow: auto !important;
   }
 
-  .fade-item,
-  .fade-in {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-  }
 }

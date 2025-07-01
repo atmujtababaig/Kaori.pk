@@ -696,99 +696,80 @@
     });
   </script>
 
-  <!-- Menu Tabs Script: toggles menu categories -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const tabs = document.querySelectorAll('.menu-tab');
-      const contents = document.querySelectorAll('.menu-content');
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          tabs.forEach(t => t.classList.remove('active'));
-          contents.forEach(c => c.classList.remove('active'));
-          tab.classList.add('active');
-          document.getElementById(tab.dataset.target)?.classList.add('active');
-        });
-      });
-    });
-  </script>
-
-  <!-- Horizontal Scroll Engine: drives sideways scroll -->
-  <script>
-    const spaceHolder = document.querySelector('.space-holder');
-    const horizontal = document.querySelector('.horizontal');
-    function calcDynamicHeight(ref) {
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-      return ref.scrollWidth + vw + vh - 1600;
-    }
-    function updateScrollHeight() {
-      spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
-    }
-    updateScrollHeight();
-    window.addEventListener('resize', updateScrollHeight);
-    window.addEventListener('scroll', () => {
-      const sticky = document.querySelector('.sticky');
-      horizontal.style.transform = `translateX(-${sticky.offsetTop}px)`;
-    });
-  </script>
-
-  <!-- Scroll Ring Visibility: toggles the scroll hint -->
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const ring = document.querySelector('.scroll-ring-indicator');
-      const sh = document.querySelector('.space-holder');
-      if (!ring || !sh) return;
-      window.addEventListener('scroll', () => {
-        const { top, bottom } = sh.getBoundingClientRect();
-        ring.classList.toggle('visible', top <= 0 && bottom >= window.innerHeight);
-      });
-    });
-  </script>
-
+<!-- Menu Tabs Script: toggles menu categories -->
 <script>
-  // Select DOM elements
-  const hamburger = document.querySelector('.hamburger');
-  const mobileMenu = document.querySelector('.mobile-nav-overlay');
-  const navLinks = document.querySelectorAll('.mobile-nav a');
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.menu-tab');
+  const contents = document.querySelectorAll('.menu-content');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.target)?.classList.add('active');
+    });
+  });
+});
+</script>
 
-  // Toggle menu on hamburger click
+<!-- Horizontal Scroll Engine: drives sideways scroll -->
+<script>
+const spaceHolder = document.querySelector('.space-holder');
+const horizontal   = document.querySelector('.horizontal');
+function calcDynamicHeight(ref) {
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  return ref.scrollWidth + vw + vh - 1600;
+}
+function updateScrollHeight() {
+  spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
+}
+updateScrollHeight();
+window.addEventListener('resize', updateScrollHeight);
+window.addEventListener('scroll', () => {
+  const sticky = document.querySelector('.sticky');
+  horizontal.style.transform = `translateX(-${sticky.offsetTop}px)`;
+});
+</script>
+
+<!-- Scroll Ring Visibility: toggles the scroll hint -->
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const ring = document.querySelector('.scroll-ring-indicator');
+  const sh   = document.querySelector('.space-holder');
+  if (!ring || !sh) return;
+  window.addEventListener('scroll', () => {
+    const { top, bottom } = sh.getBoundingClientRect();
+    ring.classList.toggle('visible', top <= 0 && bottom >= window.innerHeight);
+  });
+});
+</script>
+
+<!-- Mobile Hamburger & Overlay Menu -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger  = document.querySelector('.hamburger');
+  const overlay    = document.querySelector('.mobile-nav-overlay');
+  const navLinks   = overlay.querySelectorAll('a');
+
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
   });
 
-  // Close menu when any link is clicked
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
-      mobileMenu.classList.remove('active');
+      overlay.classList.remove('active');
     });
   });
+});
 </script>
 
+<!-- About/History Cards Click -->
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const overlay   = document.querySelector('.mobile-nav-overlay');
-
-    // Toggle the overlay
-    hamburger.addEventListener('click', () => {
-      overlay.classList.toggle('open');
-    });
-
-    // Close when any link is clicked
-    overlay.querySelectorAll('a').forEach(link =>
-      link.addEventListener('click', () => overlay.classList.remove('open'))
-    );
-  });
-</script>
-
-
-<script>
-// 2) On page‐load, wire up every card to follow its own “→” link:
-document.addEventListener("DOMContentLoaded", () => {
-  document
-    .querySelectorAll('.about-history-section .card')
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.about-history-section .card')
     .forEach(card => {
       card.addEventListener('click', () => {
         const arrowLink = card.querySelector('a.arrow');
@@ -798,20 +779,33 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-
+<!-- Preloader + Fade-in Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const pre  = document.getElementById('preloader');
-  const logo = document.getElementById('preloader-logo');
-  const main = document.getElementById('main-content');
+  const pre      = document.getElementById('preloader');
+  const logo     = document.getElementById('preloader-logo');
+  const main     = document.getElementById('main-content');
+  const isMobile = window.innerWidth < 768;
 
-  // 1) Wrap your fade‐in & mobile‐delay logic
+  // If mobile, skip waiting and start animations immediately
+  function startMobileAnimations() {
+    if (pre)   pre.classList.add('hidden');
+    document.body.classList.remove('preloading');
+    if (main)  main.style.display = 'block';
+    initContentAnimations();
+  }
+  if (isMobile) {
+    startMobileAnimations();
+    // don't return—GSAP timeline will still run if present
+  }
+
+  // Set up fade-in & mobile-delay logic
   function initContentAnimations() {
-    // Mobile delays
+    // Mobile-specific delays
     function applyMobileDelays() {
       if (window.innerWidth < 768) {
-        document.getElementById('navbar').classList.add('fade-delay-left');
-        document.getElementById('heroLeft').classList.add('fade-delay-navbar');
+        document.getElementById('navbar')?.classList.add('fade-delay-left');
+        document.getElementById('heroLeft')?.classList.add('fade-delay-navbar');
       }
     }
     applyMobileDelays();
@@ -830,30 +824,29 @@ document.addEventListener('DOMContentLoaded', () => {
     items.forEach(el => observer.observe(el));
   }
 
-  // 2) GSAP preloader timeline
+  // GSAP preloader timeline
   const tl = gsap.timeline({ defaults: { duration: 1, ease: 'sine.out' } });
   tl
-    .to(logo, { opacity: 1, scale: 1 })      // logo fade‐in & scale
-    .to({}, { duration: 0.5 })               // pause
-    .to(pre, {                               // backdrop fade‐out
+    .to(logo, { opacity: 1, scale: 1 })
+    .to({}, { duration: 0.5 })
+    .to(pre, {
       opacity: 0,
       duration: 0.6,
       ease: 'sine.in',
       onComplete: () => {
-        pre.classList.add('hidden');          // hide preloader
+        pre.classList.add('hidden');
         document.body.classList.remove('preloading');
-        main.style.display = 'block';         // show main
-        initContentAnimations();              // then init content animations
+        main.style.display = 'block';
+        initContentAnimations();
       }
     });
 
-  // 3) Unified <a> click handler
+  // Unified <a> click handler
   document.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', e => {
       const href = link.getAttribute('href');
-
-      // CASE A: same‐page hash → smooth scroll
-      if (href && href.startsWith('#') && document.querySelector(href)) {
+      // Same-page hash → smooth scroll
+      if (href?.startsWith('#') && document.querySelector(href)) {
         e.preventDefault();
         pre.classList.add('hidden');
         document.body.classList.remove('preloading');
@@ -861,8 +854,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
         return;
       }
-
-      // CASE B: internal page nav → show preloader + navigate
+      // Internal nav → show preloader, then navigate
       if (link.origin === location.origin && !href.startsWith('#')) {
         e.preventDefault();
         pre.classList.remove('hidden');
@@ -872,19 +864,12 @@ document.addEventListener('DOMContentLoaded', () => {
         tl.restart();
         setTimeout(() => window.location.href = href, 500);
       }
-      // external links proceed normally
+      // External links proceed normally
     });
   });
 });
 </script>
 
-<script>
-  if (window.innerWidth < 768) {
-    document.querySelectorAll('.fade-item, .fade-in').forEach(el => {
-      el.classList.add('visible');
-    });
-  }
-</script>
 
 
 
