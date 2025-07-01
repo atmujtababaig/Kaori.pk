@@ -61,7 +61,7 @@
 }
 .headline {
   position: absolute;
-  bottom: 150px;
+  bottom: 0px;
   left: 70px;
   color: #f0eada;
   font-family: 'Cormorant Garamond', serif;
