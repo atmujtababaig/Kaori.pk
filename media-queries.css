@@ -64,7 +64,7 @@
   bottom: 150px;
   left: 70px;
   color: #f0eada;
-  font-family: "Italiana", sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 800;
   font-size: 3.5vw;
   line-height: 1.2;
@@ -96,7 +96,7 @@
 .card:hover .card-image img { transform: scale(1.03); }
 .card-heading {
   position: absolute; bottom:20px; right:20px;
-  color:#f0eada; font-family:"Italiana"; font-size:1vw; font-weight:500;
+  color:#f0eada; font-family: 'Cormorant Garamond'; font-size:1vw; font-weight:500;
   text-shadow:1px 1px 2px rgba(0,0,0,0.4); z-index:3;
 }
 
@@ -113,6 +113,16 @@
     display: flex;
     flex-direction: column;
     height: auto;
+  }
+
+  .headline h1 {
+    top: -80px !important;
+    left: 0px !important;
+    right: 10px !important;
+    width: calc(100% - 20px) !important;
+    font-size: 10vw !important;
+    line-height: 1.1 !important;
+    word-break: break-word !important;
   }
 
   /* Left pane above, full width */
@@ -162,7 +172,7 @@
 @media (max-width: 768px) {
   /* same stacking but with smaller heights */
   .left-container { height: 50vh; }
-  .headline { bottom: 15%; left: 15px; font-size: 8vw; }
+  .headline h1 { bottom: 15%; left: 15px; font-size: 8vw; }
   .right-container .card { height: 150px; }
   /* show hamburger */
   .nav-links { display: none; }
@@ -344,8 +354,8 @@
   }
 
   /* 5) Cards stack after left-pane */
-  .right-container {
-    display: flex !important;
+  #hero .right-container {
+    display: block !important;
     flex-direction: column !important;
     gap: 12px !important;
     padding: 16px !important;
@@ -355,16 +365,17 @@
     width: 100% !important;
     height: 150px !important;
     border-radius: 8px !important;
+    margin-bottom: 20px;
   }
 
   /* Card heading size */
-  .card-heading {
+  #hero .card-heading {
     position: absolute;
     bottom: 20px;
     right: 20px;
     color: #f0eada;
-    font-family: "Italiana", sans-serif;
-    font-size: 2rem !important;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem !important;
     font-weight: 500;
     text-align: right;
     line-height: 1.2;
@@ -734,21 +745,26 @@
   }
 }
 
-@media (max-width: 768px) {
 
-  body {
-    overflow: auto !important;
+
+/* MOBILE NARROW @ ≤400px */
+@media (max-width: 570px) {
+  /* 1) Hero headline ko viewport ke andar wrap karo */
+.headline h1 {
+    top: -80px !important;
+    left: 0px !important;
+    right: 0px !important;
+    width: calc(100% - 20px) !important;
+    font-size: 15vw !important;
+    line-height: 1.1 !important;
+    word-break: break-word !important;
   }
 
-
-
+    .sample-card .text-content h2 {
+        margin-bottom: 1rem !important;
+        font-size: 40px;
+    }
 }
-
-
-
-
-
-
 
 
 

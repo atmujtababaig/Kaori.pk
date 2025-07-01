@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: serif;
   background-color: #000;
   color: #000;
   -webkit-font-smoothing: antialiased;
@@ -102,7 +102,7 @@ body.preloading * {
   bottom: 150px;
   left: 70px;
   color: #f0eada;
-  font-family: "Italiana", sans-serif;
+  font-family: "Cormorant Garamond", serif;
   font-weight: 800;
   font-size: 3.5vw;
   line-height: 1.2;
@@ -112,6 +112,12 @@ body.preloading * {
 .headline h1 {
   margin: 0;
   font-weight: 500;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 800;
+  font-size: 5.5vw;
+  line-height: 1.2;
+  text-shadow: 1px 1px 2px rgba(10,10,10,1);
+  z-index: 2;
 }
 .animation-text-wipe {
   display: inline-block;
@@ -358,12 +364,14 @@ body.preloading * {
 /* Columns */
 .split-left,
 .split-right {
+  display: flex;
+  justify-content: center;
   flex: 1;
 }
 
 /* Heading style */
 .split-left h2 {
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 2.8rem;
   line-height: 1.6;
   color: #f0eada;
@@ -663,7 +671,7 @@ body.preloading * {
 .sample-card .text-content h2 {
   font-size: 3.5rem;
   margin-bottom: 10px;
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 500;
   color: white;
 }
@@ -748,7 +756,7 @@ body.preloading * {
   border: 1px solid #222;
   border-radius: 1rem;
   padding: 4rem 2rem;
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   color: #fff;
   max-width: 1200px;
   margin: 2rem auto;
@@ -759,7 +767,7 @@ body.preloading * {
 }
 
 .section-title {
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 3rem;
   letter-spacing: 0.15rem;
   text-transform: uppercase;
@@ -775,7 +783,7 @@ body.preloading * {
   margin-bottom: 2.5rem;
 }
 .menu-tab {
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 0.9rem;
   text-transform: uppercase;
   padding: 0.5rem 1.5rem;
@@ -810,7 +818,7 @@ body.preloading * {
   margin-bottom: 0.5rem;
 }
 .item-name {
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.1rem;
   text-transform: uppercase;
   color: #f5f0e8;
@@ -821,7 +829,7 @@ body.preloading * {
   margin: 0 0.75rem;
 }
 .item-price {
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.05rem;
   color: #c28f36;
 }
@@ -839,7 +847,7 @@ body.preloading * {
   margin-top: 3rem;
 }
 .view-full-btn {
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -923,7 +931,7 @@ body.preloading * {
 }
 .booking-left .left-heading .line1 {
   display: block;
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
   font-size: 2.5rem;        /* smaller “Book A” */
   color: #f0eada;
@@ -931,7 +939,7 @@ body.preloading * {
 }
 .booking-left .left-heading .line2 {
   display: block;
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
   font-size: 7rem;        /* large “Table” */
   color: #f0eada;
@@ -963,7 +971,7 @@ body.preloading * {
 
 /* Right panel heading */
 .booking-right .right-heading {
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
   font-size: 2.5rem;
   text-transform: uppercase;
@@ -1028,7 +1036,7 @@ body.preloading * {
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 0.5rem;
   background: transparent;
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
   font-size: 1rem;
   color: #f0eada;
@@ -1084,7 +1092,7 @@ body.preloading * {
 
   .booking-left,
   .booking-right {
-    width: 100%;
+    width: 100vw !important;
     height: auto !important;
     min-height: unset !important;
   }
@@ -1365,7 +1373,7 @@ body.preloading * {
   color: #aaa;
 }
 .about-history-wrapper .title {
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 2.2rem;
   color: #f0eada;
   margin: 0;
@@ -1592,7 +1600,7 @@ body.preloading * {
 .mobile-nav-overlay.active .mobile-nav a {
   color: #f0eada;
   font-size: 2rem;
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   text-decoration: none;
   opacity: 0;
   animation: slideFadeIn 0.4s ease forwards;
@@ -1653,7 +1661,7 @@ body.preloading * {
 }
 
 .page-title-banner h1 {
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 4rem;    
   font-weight: 300;                   /* Large “MENU” text */
   color: #ffffff;                        /* Golden accent color */
@@ -1687,7 +1695,7 @@ display: flex;
 }
 
 .menu-tab {
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1rem;
   min-width: 8rem; 
   text-transform: uppercase;
@@ -1729,7 +1737,7 @@ display: flex;
 }
 
 .menu-item .item-name {
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.15rem;
   text-transform: uppercase;
   color: #f0f0f0;
@@ -1743,7 +1751,7 @@ display: flex;
 }
 
 .menu-item .item-price {
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.1rem;
   color: #fbfbfb;
   white-space: nowrap;
@@ -1801,5 +1809,24 @@ display: flex;
     font-size: 2rem !important;
     bottom: 16px !important;
     right: 16px !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+  main[data-scroll-container] {
+    display: block !important;
+    overflow: auto !important;
+    height: auto !important;
+  }
+
+  body {
+    overflow: auto !important;
+  }
+
+  .fade-item,
+  .fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
   }
 }

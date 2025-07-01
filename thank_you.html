@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You – KAORI</title>
+
+  <!-- Kaori’s core styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="media-queries.css" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
+
+
+  <style>
+    /* reset + full-height background */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+    }
+    /* flex-center wrapper with padding */
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+    /* constrain content width */
+    .thank-you {
+      max-width: 600px;
+      width: 100%;
+    }
+    /* responsive headline */
+    .thank-you h1 {
+      font-family: "Cormorant Garamond", serif;
+      color: #f0eada;
+      font-weight: 300;
+      margin: 0;
+      line-height: 1.1;
+      font-size: clamp(2rem, 8vw, 4rem);
+    }
+    /* responsive subtext */
+    .thank-you p {
+      margin-top: 1rem;
+      font-family: sans-serif;
+      color: #ccc;
+      line-height: 1.4;
+      font-size: clamp(0.9rem, 4vw, 1rem);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="thank-you">
+      <h1>Thank You.</h1>
+      <p>Your reservation request has been received. You’ll be informed shortly.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -24,10 +24,11 @@
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap"
     rel="stylesheet"
   />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Italiana&display=swap"
-    rel="stylesheet"
-  />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
 
   <!-- Flatpickr CSS for date/time picker -->
   <link
@@ -73,8 +74,8 @@
 
   <!-- Desktop Navigation Links -->
   <nav class="nav-links">
-    <a href="contact.html">CONTACT</a>
     <a href="resturant-tour.html">RESURANT TOUR</a>
+    <a href="contact.html">CONTACT</a>
     <a href="#booking-section" class="cta">BOOK A TABLE</a>
   </nav>
 </div>
@@ -83,9 +84,9 @@
 <div class="mobile-nav-overlay">
   <nav class="mobile-nav">
     <a href="menu.html">MENU</a>
-    <a href="contact.html">CONTACT</a>
     <a href="resturant-tour.html">RESTURANT TOUR</a>
     <a href="#booking-section" class="cta">BOOK A TABLE</a>
+    <a href="contact.html">CONTACT</a>
   </nav>
 </div>
 
@@ -592,6 +593,7 @@
               </p>
               <form action="https://api.web3forms.com/submit" method="POST" class="booking-form fade-item">
                      <input type="hidden" name="access_key" value="523ce866-fb7c-44f7-8b0e-c9be356694bd">
+                     <input type="hidden" name="redirect" value="https://kaori.pk/thank_you.html">
 
                  <input type="hidden" name="subject" value="New Reservation — KAORI">
                  <input type="hidden" name="from_name" value="KAORI.PK">
@@ -645,18 +647,18 @@
 
           <!-- Social Icons -->
           <div class="social-icons">
-            <a href="https://facebook.com/yourhandle" class="social-link" target="_blank">
+            <a href="https://www.facebook.com/kaori.sialkot/" class="social-link" target="_blank">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://instagram.com/yourhandle" class="social-link" target="_blank">
+            <a href="https://www.instagram.com/kaori.pk/?hl=en" class="social-link" target="_blank">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://twitter.com/yourhandle" class="social-link" target="_blank">
+            <!-- <a href="https://twitter.com/yourhandle" class="social-link" target="_blank">
               <i class="fab fa-twitter"></i>
             </a>
             <a href="https://behance.net/yourhandle" class="social-link" target="_blank">
               <i class="fab fa-behance"></i>
-            </a>
+            </a> -->
           </div>
         </div>
       </footer>
@@ -876,22 +878,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-  <script>
-if (window.innerWidth < 768) {
-  const elements = document.querySelectorAll('.fade-item, .fade-in');
-  const revealOnScroll = () => {
-    elements.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 50) {
-        el.classList.add('visible');
-      }
+<script>
+  if (window.innerWidth < 768) {
+    document.querySelectorAll('.fade-item, .fade-in').forEach(el => {
+      el.classList.add('visible');
     });
-  };
-
-  revealOnScroll();
-  window.addEventListener('scroll', revealOnScroll);
-}
-
+  }
 </script>
 
 

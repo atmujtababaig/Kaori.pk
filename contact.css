@@ -89,7 +89,7 @@
   z-index: 2;
 }
 .tour-overlay h2 {
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
   font-size: clamp(2rem, 6vw, 4rem);
   color: #f0eada;
@@ -117,10 +117,9 @@
   text-align: center;
 }
 .getin-box h3 {
-  font-family: 'Italiana', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 200;
   font-size: 3rem;
-  letter-spacing: 0.1em;
 }
 .getin-box p {
   margin: 0;
