@@ -746,7 +746,7 @@
 /* MOBILE NARROW @ ≤400px */
 @media (max-width: 570px) {
   /* 1) Hero headline ko viewport ke andar wrap karo */
-#hero .headline h1 {
+.headline{
   margin-top: 4000px !important;
     top: -1200px !important;
     left: 0px !important;
