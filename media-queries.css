@@ -61,7 +61,6 @@
 }
 .headline {
   position: absolute;
-  bottom: 0px;
   left: 70px;
   color: #f0eada;
   font-family: 'Cormorant Garamond', serif;
@@ -116,7 +115,6 @@
   }
 
   .headline h1 {
-    top: -80px !important;
     left: 0px !important;
     right: 10px !important;
     width: calc(100% - 20px) !important;
@@ -140,8 +138,7 @@
     top: 20px;
     left: 20px;
   }
-  .headline {
-    bottom: 20%;
+  .headline { 
     left: 20px;
     font-size: 6vw;
   }
@@ -172,7 +169,7 @@
 @media (max-width: 768px) {
   /* same stacking but with smaller heights */
   .left-container { height: 50vh; }
-  .headline h1 { bottom: 15%; left: 15px; font-size: 8vw; }
+  .headline h1 { left: 15px; font-size: 8vw; }
   .right-container .card { height: 150px; }
   /* show hamburger */
   .nav-links { display: none; }
@@ -345,7 +342,6 @@
   /* 4) Headline inside left-container, spaced from top */
   .headline {
     position: absolute !important;
-    margin-top: 150px !important;
     margin-left: 20px;
     text-align: left;
     font-size: 3rem !important;
@@ -750,8 +746,9 @@
 /* MOBILE NARROW @ ≤400px */
 @media (max-width: 570px) {
   /* 1) Hero headline ko viewport ke andar wrap karo */
-.headline h1 {
-    top: -80px !important;
+#hero .headline h1 {
+  margin-top: 4000px !important;
+    top: -1200px !important;
     left: 0px !important;
     right: 0px !important;
     width: calc(100% - 20px) !important;
@@ -768,3 +765,8 @@
 
 
 
+@media (max-width: 900px) {
+  .booking-container {
+    overflow: visible !important;
+  }
+}

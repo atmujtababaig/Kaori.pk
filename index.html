@@ -665,143 +665,60 @@
     </section>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-
-  <script>
-    const ham = document.querySelector('.hamburger');
-    const nav = document.querySelector('.nav-links');
-    ham.addEventListener('click', () => nav.classList.toggle('open'));
-  </script>
-
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    flatpickr("#date-picker", {
-      altInput: true,
-      altFormat: "Y-m-d",
-      dateFormat: "Y-m-d",
-      minDate: "today",
-      clickOpens: true
-    });
-    flatpickr("#time-picker", {
-      altInput: true,
-      altFormat: "h:i K",
-      dateFormat: "H:i",
-      enableTime: true,
-      noCalendar: true,
-      time_24hr: false,
-      clickOpens: true
-    });
-
-    });
-  </script>
-
-<!-- Menu Tabs Script: toggles menu categories -->
-<script>
 document.addEventListener('DOMContentLoaded', () => {
-  const tabs = document.querySelectorAll('.menu-tab');
-  const contents = document.querySelectorAll('.menu-content');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      contents.forEach(c => c.classList.remove('active'));
-      tab.classList.add('active');
-      document.getElementById(tab.dataset.target)?.classList.add('active');
-    });
-  });
-});
-</script>
+  // Elements
+  const pre       = document.getElementById('preloader');
+  const logo      = document.getElementById('preloader-logo');
+  const main      = document.getElementById('main-content');
+  const hamburger = document.querySelector('.hamburger');
+  const overlay   = document.querySelector('.mobile-nav-overlay');
+  const navLinks  = overlay?.querySelectorAll('a') || [];
+  const isMobile  = window.innerWidth < 768;
 
-<!-- Horizontal Scroll Engine: drives sideways scroll -->
-<script>
-const spaceHolder = document.querySelector('.space-holder');
-const horizontal   = document.querySelector('.horizontal');
-function calcDynamicHeight(ref) {
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
-  return ref.scrollWidth + vw + vh - 1600;
+  // 1) Flatpickr Init
+ // FLATPICKR INIT — use appendTo + high z-index
+if (typeof flatpickr !== 'undefined') {
+  flatpickr("#date-picker", {
+    altInput: true,
+    altFormat: "Y-m-d",
+    dateFormat: "Y-m-d",
+    minDate: "today",
+    clickOpens: true,
+    appendTo: document.body,
+    onReady: (selectedDates, dateStr, instance) => {
+      instance.calendarContainer.style.zIndex = '10000';
+    }
+  });
+  flatpickr("#time-picker", {
+    altInput: true,
+    altFormat: "h:i K",
+    dateFormat: "H:i",
+    enableTime: true,
+    noCalendar: true,
+    time_24hr: false,
+    clickOpens: true,
+    appendTo: document.body,
+    onReady: (sel, str, inst) => {
+      inst.calendarContainer.style.zIndex = '10000';
+    }
+  });
 }
-function updateScrollHeight() {
-  spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
-}
-updateScrollHeight();
-window.addEventListener('resize', updateScrollHeight);
-window.addEventListener('scroll', () => {
-  const sticky = document.querySelector('.sticky');
-  horizontal.style.transform = `translateX(-${sticky.offsetTop}px)`;
-});
-</script>
 
-<!-- Scroll Ring Visibility: toggles the scroll hint -->
-<script>
-window.addEventListener('DOMContentLoaded', () => {
-  const ring = document.querySelector('.scroll-ring-indicator');
-  const sh   = document.querySelector('.space-holder');
-  if (!ring || !sh) return;
-  window.addEventListener('scroll', () => {
-    const { top, bottom } = sh.getBoundingClientRect();
-    ring.classList.toggle('visible', top <= 0 && bottom >= window.innerHeight);
-  });
-});
-</script>
 
-<!-- Mobile Hamburger & Overlay Menu -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const hamburger  = document.querySelector('.hamburger');
-  const overlay    = document.querySelector('.mobile-nav-overlay');
-  const navLinks   = overlay.querySelectorAll('a');
-
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    overlay.classList.toggle('active');
-  });
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      overlay.classList.remove('active');
-    });
-  });
-});
-</script>
-
-<!-- About/History Cards Click -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.about-history-section .card')
-    .forEach(card => {
-      card.addEventListener('click', () => {
-        const arrowLink = card.querySelector('a.arrow');
-        if (arrowLink) window.location.href = arrowLink.href;
-      });
-    });
-});
-</script>
-
-<!-- Preloader + Fade-in Animation Script -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const pre      = document.getElementById('preloader');
-  const logo     = document.getElementById('preloader-logo');
-  const main     = document.getElementById('main-content');
-  const isMobile = window.innerWidth < 768;
-
-  // If mobile, skip waiting and start animations immediately
+  // 2) Mobile: skip preloader, show content, start animations
   function startMobileAnimations() {
-    if (pre)   pre.classList.add('hidden');
+    pre?.classList.add('hidden');
     document.body.classList.remove('preloading');
-    if (main)  main.style.display = 'block';
+    main && (main.style.display = 'block');
     initContentAnimations();
   }
-  if (isMobile) {
-    startMobileAnimations();
-    // don't return—GSAP timeline will still run if present
-  }
+  if (isMobile) startMobileAnimations();
 
-  // Set up fade-in & mobile-delay logic
+  // 3) Fade-in & mobile delays
   function initContentAnimations() {
-    // Mobile-specific delays
     function applyMobileDelays() {
       if (window.innerWidth < 768) {
         document.getElementById('navbar')?.classList.add('fade-delay-left');
@@ -811,8 +728,8 @@ document.addEventListener('DOMContentLoaded', () => {
     applyMobileDelays();
     window.addEventListener('resize', applyMobileDelays);
 
-    // IntersectionObserver for .fade-item & .fade-in
     const items = document.querySelectorAll('.fade-item, .fade-in');
+    const obsOpts = { threshold: 0.1 };
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -820,11 +737,11 @@ document.addEventListener('DOMContentLoaded', () => {
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, obsOpts);
     items.forEach(el => observer.observe(el));
   }
 
-  // GSAP preloader timeline
+  // 4) GSAP preloader timeline
   const tl = gsap.timeline({ defaults: { duration: 1, ease: 'sine.out' } });
   tl
     .to(logo, { opacity: 1, scale: 1 })
@@ -836,39 +753,98 @@ document.addEventListener('DOMContentLoaded', () => {
       onComplete: () => {
         pre.classList.add('hidden');
         document.body.classList.remove('preloading');
-        main.style.display = 'block';
+        main && (main.style.display = 'block');
         initContentAnimations();
       }
     });
 
-  // Unified <a> click handler
+  // 5) Smooth internal <a> navigation
   document.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', e => {
       const href = link.getAttribute('href');
-      // Same-page hash → smooth scroll
       if (href?.startsWith('#') && document.querySelector(href)) {
         e.preventDefault();
-        pre.classList.add('hidden');
+        pre?.classList.add('hidden');
         document.body.classList.remove('preloading');
         main.style.display = 'block';
         document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
         return;
       }
-      // Internal nav → show preloader, then navigate
       if (link.origin === location.origin && !href.startsWith('#')) {
         e.preventDefault();
-        pre.classList.remove('hidden');
+        pre?.classList.remove('hidden');
         gsap.set(pre,  { opacity: 1 });
         gsap.set(logo, { opacity: 0, scale: 0.95 });
-        main.style.display = 'none';
+        main && (main.style.display = 'none');
         tl.restart();
         setTimeout(() => window.location.href = href, 500);
       }
-      // External links proceed normally
+    });
+  });
+
+  // 6) Menu Tabs
+  document.querySelectorAll('.menu-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.menu-content').forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.target)?.classList.add('active');
+    });
+  });
+
+  // 7) Horizontal Scroll Engine
+  const spaceHolder = document.querySelector('.space-holder');
+  const horizontal  = document.querySelector('.horizontal');
+  function calcHeight(ref) {
+    return ref.scrollWidth + window.innerWidth + window.innerHeight - 1600;
+  }
+  function updateHeight() {
+    if (spaceHolder && horizontal) {
+      spaceHolder.style.height = `${calcHeight(horizontal)}px`;
+    }
+  }
+  updateHeight();
+  window.addEventListener('resize', updateHeight);
+  window.addEventListener('scroll', () => {
+    const sticky = document.querySelector('.sticky');
+    if (sticky && horizontal) horizontal.style.transform = `translateX(-${sticky.offsetTop}px)`;
+  });
+
+  // 8) Scroll Ring Visibility
+  const ring = document.querySelector('.scroll-ring-indicator');
+  if (ring && spaceHolder) {
+    window.addEventListener('scroll', () => {
+      const { top, bottom } = spaceHolder.getBoundingClientRect();
+      ring.classList.toggle('visible', top <= 0 && bottom >= window.innerHeight);
+    });
+  }
+
+  // 9) Mobile Hamburger & Overlay Toggle
+  if (hamburger && overlay) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      overlay.classList.toggle('active');
+      overlay.classList.toggle('open');
+    });
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        overlay.classList.remove('active');
+        overlay.classList.remove('open');
+      });
+    });
+  }
+
+  // 10) About/History Cards Click
+  document.querySelectorAll('.about-history-section .card').forEach(card => {
+    card.addEventListener('click', () => {
+      const arrow = card.querySelector('a.arrow');
+      if (arrow) window.location.href = arrow.href;
     });
   });
 });
 </script>
+
 
 
 
