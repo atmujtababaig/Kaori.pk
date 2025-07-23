@@ -36,7 +36,7 @@ a {
   z-index: 9999;
 }
 
-/* Logo base: invisible and slightly small */
+/* Logo base */
 #preloader-logo {
   width: 150px;
   opacity: 0;
@@ -142,7 +142,6 @@ body.preloading * {
   gap: 10px;
   margin: 10px;
   border-radius: 10px;
-  /* height:auto; */          /* agar zaroorat ho to */
 }
 
 #hero .right-container {
@@ -168,9 +167,9 @@ body.preloading * {
 /* Full-cover invisible link */
 #hero .card > a.card-link {
   position: absolute;
-  inset: 0;             /* top/right/bottom/left:0 */
+  inset: 0;            
   display: block;
-  z-index: 3;           /* above overlays */
+  z-index: 3;      
   text-decoration: none;
   color: inherit;
 }
@@ -185,20 +184,20 @@ body.preloading * {
   z-index: 1;
 }
 
-/* Dark tint overlay on hover */
+
 #hero .card .overlay {
   position: absolute;
   inset: 0;
   background-color: rgba(0,0,0,0.2);
   transition: background-color 0.4s ease;
-  pointer-events: none;  /* allow clicks through */
+  pointer-events: none;  
   z-index: 2;
 }
 #hero .card:hover .overlay {
   background-color: rgba(0,0,0,0.4);
 }
 
-/* Background images (keep your files/menu.jpg etc.) */
+
 #hero .right-container .card:nth-child(1) {
   background-image: url('Resources/KAORI-Panasian.jpg');
 }
@@ -230,8 +229,8 @@ body.preloading * {
   font-size: 1vw;
   font-weight: 500;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-  pointer-events: none;  /* so link still catches clicks */
-  z-index: 4;            /* above the link */
+  pointer-events: none; 
+  z-index: 4;            
 }
 
 
@@ -540,9 +539,9 @@ body.preloading * {
   align-items: center;
   justify-content: center;
 
-  width: 80%; /* ⬅️ smaller than ring */
+  width: 80%; 
   height: 80%;
-  padding: 10px; /* ⬅️ clean inner spacing */
+  padding: 10px; 
   box-sizing: border-box;
 }
 
@@ -557,7 +556,7 @@ body.preloading * {
     transparent 6px
   );
   animation: scroll-pulse 1.2s ease-in-out infinite;
-  margin-bottom: 8px; /* ⬅️ spacing below bar */
+  margin-bottom: 8px; 
 }
 
 .scroll-label {
@@ -589,9 +588,9 @@ body.preloading * {
 .horizontal-container {
    position: relative;
   width: 100%;
-  min-height: 100vh; /* changed from 100vh */
+  min-height: 100vh; 
   background-color: #000;
-  padding: 0; /* remove any default spacing */
+  padding: 0; 
   margin: 0;
 }
 
@@ -604,7 +603,7 @@ body.preloading * {
 .sticky {
  position: sticky;
   top: 0;
-  height: 100vh; /* keep this only if you want full screen scroll trigger */
+  height: 100vh;
   width: 100%;
   overflow-x: hidden;
   display: flex;
@@ -622,7 +621,7 @@ body.preloading * {
 
 .horizontal-inner {
   align-items: center;
-  transform: translateX(100vw); /* 💡 only visual shift */
+  transform: translateX(100vw); 
 }
 
 .cards {
@@ -634,7 +633,7 @@ body.preloading * {
   justify-content: flex-start;
   align-items: center;
   min-width: max-content;
-   height: auto; /* override if it’s too tall */
+   height: auto; 
 }
 
 
@@ -643,23 +642,23 @@ body.preloading * {
   height: 560px;
   width: 940px;
   color: #f0eada;
-  background-color: transparent; /* Removed background */
+  background-color: transparent; 
   margin-right: 80px;
   border-radius: 20px;
-  box-shadow: none; /* Removed shadow */
+  box-shadow: none; 
   display: flex;
-  flex-direction: row; /* Layout: text on left, image on right */
+  flex-direction: row; 
   align-items: center;
   justify-content: space-between;
   padding: 30px;
   transition: transform 0.3s ease;
   flex-shrink: 0;
-  border: 1px solid #333; /* Optional border for visual clarity */
+  border: 1px solid #333; 
 }
 
 .sample-card:hover {
   transform: scale(1.03);
-  background-color: rgba(255, 255, 255, 0.05); /* subtle hover effect */
+  background-color: rgba(255, 255, 255, 0.05); 
 }
 
 .sample-card .text-content {
@@ -723,18 +722,18 @@ body.preloading * {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: none; /* background removed */
+  background: none; 
 }
 
 .quality-image {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* keeps the transparent PNG intact */
+  object-fit: contain; 
   border-radius: 20px;
   display: block;
 }
 
-/* Ensure horizontal layout scrolls fully */
+
 .cards {
   min-width: max-content;
   display: flex;
@@ -933,7 +932,7 @@ body.preloading * {
   display: block;
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
-  font-size: 2.5rem;        /* smaller “Book A” */
+  font-size: 2.5rem;        
   color: #f0eada;
   margin-bottom: 0.2em;
 }
@@ -941,11 +940,11 @@ body.preloading * {
   display: block;
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
-  font-size: 7rem;        /* large “Table” */
+  font-size: 7rem;       
   color: #f0eada;
 }
 
-/* Kill any leftover mask/wipe on those spans */
+
 .booking-left .left-heading .line1,
 .booking-left .left-heading .line2 {
   mask: none !important;
@@ -1049,15 +1048,14 @@ body.preloading * {
 }
 
 .borders{
-    /* give it the menu‐style border */
   border: 1px solid #222;
   border-radius: 1rem;
   padding: 2rem;
 
-  /* constrain width like your form */
+
   max-width: 420px;
   width: 100%;
-  background: #000;    /* match background */
+  background: #000;    
   margin: 0 auto; 
 }
 
@@ -1107,7 +1105,7 @@ body.preloading * {
     margin-top: 0px;
   }
 
-  /* 4) Left heading fonts compress karo */
+
   .booking-left .left-heading .line1 {
     margin-top: 50px;
     font-size: 1.8rem;
@@ -1116,59 +1114,58 @@ body.preloading * {
     font-size: 4rem;
   }
 
-  /* 5) Right heading chhota karo */
+
   .booking-right .right-heading {
     font-size: 2rem;
-    margin-top: 2rem; /* margin-top:100px hata ke 2rem rakha */
+    margin-top: 2rem; 
   }
 
-  /* 6) Right subheading me padding thoda adjust karo */
+ 
   .booking-right .right-subheading {
     max-width: 100%;
     padding: 0 1rem;
     margin-bottom: 1.5rem;
   }
 
-  /* 7) “borders” wrapper (form container) ko vertical centering se hata ke normal flow me lao */
+  
   .borders {
-    margin: 0 auto 2rem; /* upar ka auto, niche 2rem gap for spacing */
+    margin: 0 auto 2rem; 
     padding: 1.5rem;
   }
 
-  /* 8) Form inputs aur button ke font-size thoda chhota karo */
+  
   .booking-form input,
   .booking-form button {
     font-size: 0.95rem;
     padding: 0.7rem 1rem;
   }
 
-  /* 9) Form-row ko column mode me karo taake “Guests, Date, Time” ek neechay ek aaye */
+  
   .form-row {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  /* 1) Booking form ka row-to-row gap kam karo */
+
 .booking-form {
-  gap: 0.6rem; /* 1rem se kam, adjust kar sakte ho 0.5rem (8px) agar chahiye */
+  gap: 0.6rem; 
 }
 
-/* 2) Flatpickr-alt-input (Date/Time fields) ke upar-niche koi extra margin na ho */
+
 .flatpickr-alt-input {
-  margin: 0; /* default margin hatao */
-  /* padding thodi kam karke dekh lo */
-  padding: 0.65rem 0.9rem; /* 0.75rem 1rem ki jagah yeh use karke dekho */
+  margin: 0; 
+  padding: 0.65rem 0.9rem;
 }
 
-/* 3) Agar aap row grouping (Guests/Date/Time) ke beech horizontal gap kam karna chahte ho */
+
 .form-row {
   gap: 0.6rem;
 }
 
-/* 4) Individual inputs par agar bottom margin ho to hatao */
+
 .booking-form input {
-  margin-bottom: 0; /* koi default bottom margin agar ho to remove */
+  margin-bottom: 0; 
 }
 
 
@@ -1179,19 +1176,19 @@ body.preloading * {
    FLATPICKR OVERRIDES — DARK THEME + RESERVE-STYLE CONTROLS
    ========================================================================== */
 
-/* Hide original flatpickr-input */
+
 .flatpickr-input {
   display: none !important;
 }
 
-/* Alt-input (text field) matches Reserve button */
+
 .flatpickr-alt-input {
   display: block !important;
   width: 100%;
   padding: 0.75rem 1rem;
   background: rgba(255,255,255,0.05) !important;
   border: 1px solid rgba(255,255,255,0.2) !important;
-  border-radius: 0.5rem !important;    /* same radius as Reserve */
+  border-radius: 0.5rem !important;    
   color: #fff !important;
   font-family: 'Open Sans', sans-serif !important;
   font-size: 1rem !important;
@@ -1204,12 +1201,12 @@ body.preloading * {
 .flatpickr-calendar {
   background: #000 !important;
   border: 1px solid rgba(255,255,255,0.2) !important;
-  border-radius: 0.5rem !important;    /* match Reserve */
+  border-radius: 0.5rem !important;    
   color: #fff !important;
   z-index: 9999 !important;
 }
 
-/* Header & weekday labels in white */
+
 .flatpickr-current-month,
 .flatpickr-current-month .flatpickr-month,
 .flatpickr-current-month .flatpickr-year,
@@ -1219,7 +1216,7 @@ body.preloading * {
   color: #fff !important;
 }
 
-/* Month-nav arrows styled like Reserve button */
+
 .flatpickr-prev-month,
 .flatpickr-next-month {
   display: inline-flex !important;
@@ -1254,9 +1251,9 @@ body.preloading * {
   background: rgba(194,143,54,0.1) !important;
 }
 
-/* Day cells: transparent base, rounded, Reserve-style hover/selected */
+
 .flatpickr-day {
-  border-radius: 0.5rem !important;    /* match Reserve */
+  border-radius: 0.5rem !important;  
   transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease !important;
 }
 .flatpickr-day:not(.flatpickr-disabled) {
@@ -1280,7 +1277,7 @@ body.preloading * {
   pointer-events: none !important;
 }
 
-/* Time picker panel: dark footer matching calendar radius */
+
 .flatpickr-time {
   background: #1a1a1a !important;
   border-radius: 0 0 0.5rem 0.5rem !important;
@@ -1297,8 +1294,6 @@ body.preloading * {
 .flatpickr-monthDropdown-months {
   background: #000 !important;
   color: #fff !important;
-  /* border: 1px solid rgba(255,255,255,0.2) !important;
-  border-radius: 0.5rem !important; */
   padding: 0rem 1rem !important;
   appearance: none !important;
 }
@@ -1323,13 +1318,13 @@ body.preloading * {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;    /* cards’ bottoms aligned */
-  gap: 40px;                /* consistent gap */
+  align-items: flex-end;   
+  gap: 40px;               
 }
 
 /* ───── CARD ───── */
 .about-history-wrapper .card {
-  flex: 1 1 360px;          /* responsive min-width */
+  flex: 1 1 360px;        
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -1338,7 +1333,7 @@ body.preloading * {
 /* ───── CONTENT ROW ───── */
 .about-history-wrapper .content {
   display: flex;
-  align-items: flex-end;    /* text bottoms match image */
+  align-items: flex-end;  
   gap: 24px;
 }
 
@@ -1379,7 +1374,7 @@ body.preloading * {
   margin: 0;
 }
 .about-history-wrapper .arrow {
-  margin-top: auto;         /* push to bottom */
+  margin-top: auto;       
   font-size: 1.4rem;
   color: #f0eada;
   text-decoration: none;
@@ -1418,8 +1413,8 @@ body.preloading * {
 
 /* Footer container */
 #site-footer {
-  position: relative;           /* establish stacking context */
-  overflow: hidden;             /* clip overflowing video */
+  position: relative;         
+  overflow: hidden;             
   margin-top: 100px;
   padding: 50px 20px;
   border-top: 1px solid #333;
@@ -1457,7 +1452,7 @@ body.preloading * {
 
 /* Inner content wrapper */
 .footer-inner {
-  position: relative;           /* sit above overlay */
+  position: relative;         
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -1645,15 +1640,15 @@ body.preloading * {
    ========================================================================= */
 .page-title-banner {
   width: 100%;
-  background-color: #000;                 /* Match your overall dark theme */
-  border: 1px solid #333;                /* ← Visible border around the banner */
-  border-radius: 12px;                   /* Rounded corners on all sides */
+  background-color: #000;                
+  border: 1px solid #333;             
+  border-radius: 12px;                  
   box-sizing: border-box;
-  margin: 120px auto 2rem auto;              /* Center horizontally, 2rem bottom‐gap */
-  padding: 2rem 2rem 1rem 2rem;           /* Top padding + horizontal padding */
-  max-width: 1200px;                     /* Same width constraint as your .container */
+  margin: 120px auto 2rem auto;             
+  padding: 2rem 2rem 1rem 2rem;           
+  max-width: 1200px;                    
   position: relative;
-  z-index: 10;                           /* Sit above the background, but below navbar */
+  z-index: 10;                           
 }
 
 .page-title-banner .banner-content {
@@ -1683,14 +1678,14 @@ body.preloading * {
 .menu-section .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem; /* horizontal padding matches the banner’s 2rem */
+  padding: 0 2rem; 
 }
 
 .menu-tabs {
 display: flex;
-  flex-wrap: wrap;              /* allow wrapping onto multiple lines */
-  justify-content: center;      /* center tabs on each row */
-  gap: 1rem;                    /* space between each tab button */
+  flex-wrap: wrap;             
+  justify-content: center;      
+  gap: 1rem;                    
   margin-bottom: 2rem; 
 }
 
